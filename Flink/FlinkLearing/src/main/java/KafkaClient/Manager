@@ -1,0 +1,465 @@
+启动Kafka
+kafka-server-start.sh config/server.properties
+
+后台常驻方式，请带上参数“-daemon”，如：
+
+/usr/local/kafka/bin/kafka-server-start.sh -daemon /usr/local/kafka/config/server.properties
+
+5. 创建Topic
+参数--topic指定Topic名，--partitions指定分区数，--replication-factor指定备份数：
+
+kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+
+ 
+
+注意，如果配置文件server.properties指定了kafka在zookeeper上的目录，则参数也要指定，否则会报无可用的brokers，如：
+
+kafka-topics.sh --create --zookeeper localhost:2181/kafka --replication-factor 1 --partitions 1 --topic test
+
+6. 列出所有Topic
+kafka-topics.sh --list --zookeeper localhost:2181
+
+注意，如果配置文件server.properties指定了kafka在zookeeper上的目录，则参数也要指定，否则会报无可用的brokers，如：
+
+kafka-topics.sh --list --zookeeper localhost:2181/kafka
+
+ 
+
+输出示例：
+
+__consumer_offsets
+
+my-replicated-topic
+
+test
+
+7. 删除Topic
+1) kafka-topics.sh --zookeeper localhost:2181 --topic test --delete
+
+2) kafka-topics.sh --zookeeper localhost:2181/kafka --topic test --delete
+
+3) kafka-run-class.sh kafka.admin.DeleteTopicCommand --zookeeper localhost:2181 --topic test
+
+8. 查看Topic
+kafka-topics.sh --describe --zookeeper localhost:2181 --topic test
+
+ 
+
+注意，如果配置文件server.properties指定了kafka在zookeeper上的目录，则参数也要指定，否则会报无可用的brokers，如：
+
+kafka-topics.sh --describe --zookeeper localhost:2181/kafka --topic test
+
+ 
+
+输出示例：
+
+Topic:test PartitionCount:3 ReplicationFactor:2 Configs:
+
+Topic: test Partition: 0 Leader: 140 Replicas: 140,214 Isr: 140,214
+
+Topic: test Partition: 1 Leader: 214 Replicas: 214,215 Isr: 214,215
+
+Topic: test Partition: 2 Leader: 215 Replicas: 215,138 Isr: 215,138
+
+9. 增加topic的partition数
+kafka-topics.sh --zookeeper localhost:2181 --alter --topic test --partitions 5
+
+10. 生产消息
+kafka-console-producer.sh --broker-list localhost:9092 --topic test
+
+11. 消费消息
+1) 从头开始
+
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning
+
+2) 从尾部开始
+
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --offset latest
+
+3) 指定分区
+
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --offset latest --partition 1
+
+4) 取指定个数
+
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --offset latest --partition 1 --max-messages 1
+
+ 
+
+5) 新消费者（ver>=0.9）
+
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --new-consumer --from-beginning --consumer.config config/consumer.properties
+
+12. 查看有哪些消费者Group
+1) 分ZooKeeper方式（老）
+
+kafka-consumer-groups.sh --zookeeper 127.0.0.1:2181/kafka --list
+
+2) API方式（新）
+
+kafka-consumer-groups.sh --new-consumer --bootstrap-server 127.0.0.1:9092 --list
+
+ 
+
+输出示例：
+
+test
+
+console-consumer-37602
+
+console-consumer-75637
+
+console-consumer-59893
+
+13. 查看新消费者详情
+仅支持offset存储在zookeeper上的：
+
+ 
+
+ 
+
+kafka-run-class.sh kafka.tools.ConsumerOffsetChecker --zkconnect localhost:2181 --group test
+
+14. 查看Group详情
+kafka-consumer-groups.sh --new-consumer --bootstrap-server 127.0.0.1:9092 --group test --describe
+
+ 
+
+输出示例：
+
+TOPIC PARTITION CURRENT-OFFSET LOG-END-OFFSET LAG CONSUMER-ID HOST CLIENT-ID
+
+test  1         87             87             0   -           -    -
+
+15. 删除Group
+老版本的ZooKeeper方式可以删除Group，新版本则自动删除，当执行：
+
+kafka-consumer-groups.sh --new-consumer --bootstrap-server 127.0.0.1:9092 --group test --delete
+
+ 
+
+输出如下提示：
+
+Option '[delete]' is only valid with '[zookeeper]'.
+
+Note that there's no need to delete group metadata for the new consumer
+
+as the group is deleted when the last committed offset for that group expires.
+
+16. 设置consumer group的offset
+执行zkCli.sh进入zookeeper命令行界面，假设需将group为testgroup的topic的offset设置为2018，则：set /consumers/testgroup/offsets/test/0 2018
+
+如果kakfa在zookeeper中的根目录不是“/”，而是“/kafka”，则：
+
+set /kafka/consumers/testgroup/offsets/test/0 2018
+
+ 
+
+另外，还可以使用kafka自带工具kafka-run-class.sh kafka.tools.UpdateOffsetsInZK修改，命令用法：
+
+kafka.tools.UpdateOffsetsInZK$ [earliest | latest] consumer.properties topic
+
+从用法提示可以看出，只能修改为earliest或latest，没有直接修改zookeeper灵活。
+
+17. RdKafka自带示例
+rdkafka_consumer_example -b 127.0.0.1:9092 -g test test
+
+rdkafka_consumer_example -e -b 127.0.0.1:9092 -g test test
+
+18. 平衡leader
+kafka-preferred-replica-election.sh --zookeeper localhost:2181/chroot
+
+19. 自带压测工具
+kafka-producer-perf-test.sh --topic test --num-records 100 --record-size 1 --throughput 100 --producer-props bootstrap.servers=localhost:9092
+
+20. 查看topic指定分区offset的最大值或最小值
+time为-1时表示最大值，为-2时表示最小值：
+
+kafka-run-class.sh kafka.tools.GetOffsetShell --topic hive-mdatabase-hostsltable --time -1 --broker-list 127.0.0.1:9092 --partitions 0
+
+21. 查看__consumer_offsets
+需consumer.properties中设置exclude.internal.topics=false：
+
+1) 0.11.0.0之前版本
+
+kafka-console-consumer.sh --topic __consumer_offsets --zookeeper localhost:2181 --formatter "kafka.coordinator.GroupMetadataManager\$OffsetsMessageFormatter" --consumer.config config/consumer.properties --from-beginning
+
+2) 0.11.0.0之后版本(含)
+
+kafka-console-consumer.sh --topic __consumer_offsets --zookeeper localhost:2181 --formatter "kafka.coordinator.group.GroupMetadataManager\$OffsetsMessageFormatter" --consumer.config config/consumer.properties --from-beginning
+
+22. 获取指定consumer group的位移信息
+需consumer.properties中设置exclude.internal.topics=false：
+
+1) 0.11.0.0版本之前：
+
+kafka-simple-consumer-shell.sh --topic __consumer_offsets --partition 11 --broker-list localhost:9091,localhost:9092,localhost:9093 --formatter "kafka.coordinator.GroupMetadataManager\$OffsetsMessageFormatter"
+
+2) 0.11.0.0版本以后(含)：
+
+kafka-simple-consumer-shell.sh --topic __consumer_offsets --partition 11 --broker-list localhost:9091,localhost:9092,localhost:9093 --formatter "kafka.coordinator.group.GroupMetadataManager\$OffsetsMessageFormatter"
+
+23. 20) 查看kafka的zookeeper
+1) 查看Kakfa在zookeeper的根目录
+
+[zk: localhost:2181(CONNECTED) 0] ls /kafka
+
+[cluster, controller_epoch, controller, brokers, admin, isr_change_notification, consumers, config]
+
+ 
+
+2) 查看brokers
+
+[zk: localhost:2181(CONNECTED) 1] ls /kafka/brokers
+
+[ids, topics, seqid]
+
+ 
+
+3) 查看有哪些brokers（214和215等为server.properties中配置的broker.id值）：
+
+[zk: localhost:2181(CONNECTED) 2] ls /kafka/brokers/ids
+
+[214, 215, 138, 139]
+
+ 
+
+4) 查看broker 214，下列数据显示该broker没有设置JMX_PORT：
+
+[zk: localhost:2181(CONNECTED) 4] get /kafka/brokers/ids/214
+
+{"listener_security_protocol_map":{"PLAINTEXT":"PLAINTEXT"},"endpoints":["PLAINTEXT://test-204:9092"],"jmx_port":-1,"host":"test-204","timestamp":"1498467464861","port":9092,"version":4}
+
+cZxid = 0x200002400
+
+ctime = Mon Jun 26 16:57:44 CST 2017
+
+mZxid = 0x200002400
+
+mtime = Mon Jun 26 16:57:44 CST 2017
+
+pZxid = 0x200002400
+
+cversion = 0
+
+dataVersion = 0
+
+aclVersion = 0
+
+ephemeralOwner = 0x45b9d9e841f0136
+
+dataLength = 190
+
+numChildren = 0
+
+ 
+
+5) 查看controller，下列数据显示broker 214为controller：
+
+[zk: localhost:2181(CONNECTED) 9] get /kafka/controller
+
+{"version":1,"brokerid":214,"timestamp":"1498467946988"}
+
+cZxid = 0x200002438
+
+ctime = Mon Jun 26 17:05:46 CST 2017
+
+mZxid = 0x200002438
+
+mtime = Mon Jun 26 17:05:46 CST 2017
+
+pZxid = 0x200002438
+
+cversion = 0
+
+dataVersion = 0
+
+aclVersion = 0
+
+ephemeralOwner = 0x45b9d9e841f0136
+
+dataLength = 56
+
+numChildren = 0
+
+ 
+
+6) 查看kafka集群的id：
+
+[zk: localhost:2181(CONNECTED) 13] get /kafka/cluster/id
+
+{"version":"1","id":"OCAEJy4qSf29bhwOfO7kNQ"}
+
+cZxid = 0x2000023e7
+
+ctime = Mon Jun 26 16:57:28 CST 2017
+
+mZxid = 0x2000023e7
+
+mtime = Mon Jun 26 16:57:28 CST 2017
+
+pZxid = 0x2000023e7
+
+cversion = 0
+
+dataVersion = 0
+
+aclVersion = 0
+
+ephemeralOwner = 0x0
+
+dataLength = 45
+
+numChildren = 0
+
+ 
+
+7) 查看有哪些topics：
+
+[zk: localhost:2181(CONNECTED) 16] ls /kafka/brokers/topics
+
+[test, my-replicated-topic, test1, test2, test3, test123, __consumer_offsets, info]
+
+ 
+
+8) 查看topic下有哪些partitions：
+
+[zk: localhost:2181(CONNECTED) 19] ls /kafka/brokers/topics/__consumer_offsets/partitions
+
+[44, 45, 46, 47, 48, 49, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43]
+
+ 
+
+9) 查看“partition 0”的状态：
+
+[zk: localhost:2181(CONNECTED) 22] get /kafka/brokers/topics/__consumer_offsets/partitions/0/state
+
+{"controller_epoch":2,"leader":215,"version":1,"leader_epoch":1,"isr":[215,214]}
+
+cZxid = 0x2000024c6
+
+ctime = Mon Jun 26 18:02:07 CST 2017
+
+mZxid = 0x200bc4fc3
+
+mtime = Mon Aug 27 18:58:10 CST 2018
+
+pZxid = 0x2000024c6
+
+cversion = 0
+
+dataVersion = 1
+
+aclVersion = 0
+
+ephemeralOwner = 0x0
+
+dataLength = 80
+
+numChildren = 0
+
+24. 如何增加__consumer_offsets的副本数？
+可使用kafka-reassign-partitions.sh来增加__consumer_offsets的副本数，方法如下，构造一JSON文件reassign.json：
+
+{
+
+    "version":1,
+
+    "partitions":[
+
+        {"topic":"__consumer_offsets","partition":0,"replicas":[1,2,3]}, 
+
+        {"topic":"__consumer_offsets","partition":1,"replicas":[2,3,1]},
+
+        {"topic":"__consumer_offsets","partition":2,"replicas":[3,1,2]},
+
+        {"topic":"__consumer_offsets","partition":3,"replicas":[1,2,3]},
+
+        ...
+
+        {"topic":"__consumer_offsets","partition":100,"replicas":[2,3,1]}
+
+    ]
+
+}
+
+ 
+
+然后执行：
+
+kafka-reassign-partitions.sh --zookeeper localhost:2181/kafka --reassignment-json-file reassign.json --execute
+
+ 
+
+“[1,2,3]”中的数字为broker.id值。
+
+ 
+
+如果执行报错“Partitions reassignment failed due to Partition reassignment data file is empty”，可能是因为reasign.json文件格式不对，比如成下列格式了（中间的没有以逗号结尾）：
+
+{"topic":"__consumer_offsets","partition":29,"replicas":[5,3,2]},
+
+{"topic":"__consumer_offsets","partition":30,"replicas":[1,4,3]}
+
+{"topic":"__consumer_offsets","partition":31,"replicas":[2,5,4]}
+
+{"topic":"__consumer_offsets","partition":32,"replicas":[3,2,5]}
+
+{"topic":"__consumer_offsets","partition":33,"replicas":[4,3,1]},
+
+ 
+
+如果执行遇到下列错误：
+
+Partitions reassignment failed due to Partition replica lists may not contain duplicate entries: __consumer_offsets-16 contains multiple entries for 2. __consumer_offsets-39 contains multiple entries for 2. __consumer_offsets-40 contains multiple entries for 3. __consumer_offsets-44 contains multiple entries for 3
+
+ 
+
+原因是一个分区的两个副本被指定在同一个broker上，以16号分区为列，有两个副本落在了broker 2上：
+
+{"topic":"__consumer_offsets","partition":16,"replicas":[2,5,2]},
+
+ 
+
+执行成功后的输出：
+
+$ ../bin/kafka-reassign-partitions.sh --zookeeper 192.168.1.35.31:2181/kafka --reassignment-json-file __consumer_offsets.reassign --execute
+
+Current partition replica assignment
+
+ 
+
+{"version":1,"partitions":[{"topic":"__consumer_offsets","partition":22,"replicas":[2],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":30,"replicas":[5],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":8,"replicas":[3],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":21,"replicas":[1],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":4,"replicas":[4],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":27,"replicas":[2],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":7,"replicas":[2],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":9,"replicas":[4],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":46,"replicas":[1],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":25,"replicas":[5],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":35,"replicas":[5],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":41,"replicas":[1],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":33,"replicas":[3],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":23,"replicas":[3],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":49,"replicas":[4],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":47,"replicas":[2],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":16,"replicas":[1],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":28,"replicas":[3],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":31,"replicas":[1],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":36,"replicas":[1],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":42,"replicas":[2],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":3,"replicas":[3],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":18,"replicas":[3],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":37,"replicas":[2],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":15,"replicas":[5],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":24,"replicas":[4],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":38,"replicas":[3],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":17,"replicas":[2],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":48,"replicas":[3],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":19,"replicas":[4],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":11,"replicas":[1],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":13,"replicas":[3],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":2,"replicas":[2],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":43,"replicas":[3],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":6,"replicas":[1],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":14,"replicas":[4],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":20,"replicas":[5],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":0,"replicas":[5],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":44,"replicas":[4],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":39,"replicas":[4],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":12,"replicas":[2],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":45,"replicas":[5],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":1,"replicas":[1],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":5,"replicas":[5],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":26,"replicas":[1],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":29,"replicas":[4],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":34,"replicas":[4],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":10,"replicas":[5],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":32,"replicas":[2],"log_dirs":["any"]},{"topic":"__consumer_offsets","partition":40,"replicas":[5],"log_dirs":["any"]}]}
+
+ 
+
+Save this to use as the --reassignment-json-file option during rollback
+
+Successfully started reassignment of partitions.
+
+25. 问题
+1) -190,Local: Unknown partition
+
+比如单机版只有一个分区，但prodcue参数的分区值为1等。
+
+ 
+
+2) Rdkafka程序日志“delivery failed. errMsg:[Local: Message timed out]”
+
+同一个程序，在有些机器上会这个错误，有些机器则工作正常，相关的issues：
+
+https://github.com/edenhill/librdkafka/issues/474
+
+实测是因为在运行Kafka应用程序的机器上没有配置Kafka Brokers机器的hosts。
+
+另外的解决办法是在server.properties配置listeners和advertised.listeners，并且使用IP而不是hostname作为值。
+
+ 
+
+3) Name or service not known (after 9020595078ms in state INIT)
+
+event_callback: type(0), severity(3), (-193)kafka-204:9092/214: Failed to resolve 'kafka-204:9092': Name or service not known (after 9020595078ms in state INIT)
+
+原因是运行kafka应用程序（非kafka本身）的机器不能识别主机名kafka-204（Kafka Brokers机器可以识别），
+
+解决办法是在server.properties配置listeners和advertised.listeners，并且使用IP而不是hostname作为值。

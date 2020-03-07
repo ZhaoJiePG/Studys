@@ -1,0 +1,53 @@
+kafka集群部署
+
+broker.id=1
+delete.topic.enable=true
+log.dirs=/bigdata/kafka_2.11-0.10.2.1/data
+zookeeper.connect=node-1.xiaoniu.com:2181,node-2.xiaoniu.com:2181,node-3.xiaoniu.com:2181
+
+启动kafka
+/bigdata/kafka_2.11-0.10.2.1/bin/kafka-server-start.sh -daemon /bigdata/kafka_2.11-0.10.2.1/config/server.properties
+
+停止kafka
+/bigdata/kafka_2.11-0.10.2.1/bin/kafka-server-stop.sh
+
+
+创建topic
+/bigdata/kafka_2.11-0.10.2.1/bin/kafka-topics.sh --create --zookeeper node-1.xiaoniu.com:2181,node-2.xiaoniu.com:2181,node-3.xiaoniu.com:2181 --replication-factor 3 --partitions 3 --topic my-topic
+
+
+列出所有topic
+/bigdata/kafka_2.11-0.10.2.1/bin/kafka-topics.sh --list --zookeeper node-1.xiaoniu.com:2181,node-2.xiaoniu.com:2181,node-3.xiaoniu.com:2181
+
+查看某个topic信息
+/bigdata/kafka_2.11-0.10.2.1/bin/kafka-topics.sh --describe --zookeeper node-1.xiaoniu.com:2181,node-2.xiaoniu.com:2181,node-3.xiaoniu.com:2181 --topic my-topic
+
+启动一个命令行的生产者
+/bigdata/kafka_2.11-0.10.2.1/bin/kafka-console-producer.sh --broker-list node-1.xiaoniu.com:9092,node-1.xiaoniu.xom:9092,node-3.xiaoniu.com:9092 --topic xiaoniu
+
+启动一个命令行的消费者
+/bigdata/kafka_2.11-0.10.2.1/bin/kafka-console-consumer.sh --zookeeper node-1.xiaoniu.com:2181,node-2.xiaoniu.com:2181,node-3.xiaoniu.com:2181 --topic my-topic --from-beginning
+
+# 消费者连接到borker的地址
+/bigdata/kafka_2.11-0.10.2.1/bin/kafka-console-consumer.sh --bootstrap-server node-1.xiaoniu.com:9092,node-2.xiaoniu.com:9092,node-3.xiaoniu.com:9092 --topic xiaoniu --from-beginning
+
+
+
+
+
+
+Kafka Connect:
+https://kafka.apache.org/documentation/#connect
+http://docs.confluent.io/2.0.0/connect/connect-jdbc/docs/index.html
+
+Kafka Stream:
+https://kafka.apache.org/documentation/streams
+https://spark.apache.org/docs/1.6.1/streaming-kafka-integration.html
+
+kafka monitor:
+https://kafka.apache.org/documentation/#monitoring
+https://github.com/quantifind/KafkaOffsetMonitor
+https://github.com/yahoo/kafka-manager
+
+kafka生态圈：
+https://cwiki.apache.org/confluence/display/KAFKA/Ecosystem

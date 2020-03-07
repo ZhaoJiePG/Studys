@@ -1,0 +1,157 @@
+1.RDD是一个基本的抽象，操作RDD就像操作一个本地集合一样，降低了编程的复杂度
+
+RDD的算子分为两类，一类是Transformation（lazy），一类是Action（触发任务执行）
+RDD不存真正要计算的数据，而是记录了RDD的转换关系（调用了什么方法，传入什么函数）
+
+
+创建RDD有哪些中方式呢？
+	1.通过外部的存储系统创建RDD
+	2.将Driver的Scala集合通过并行化的方式编程RDD（试验、测验）
+	3.调用一个已经存在了的RDD的Transformation，会生成一个新的RDD
+
+	RDD的Transformation的特点
+	1.lazy
+	2.生成新的RDD
+
+
+RDD分区的数据取决于哪些因素？
+	1.如果是将Driver端的Scala集合并行化创建RDD，并且没有指定RDD的分区，RDD的分区就是为该app分配的中的和核数
+	2.如果是重hdfs中读取数据创建RDD，并且设置了最新分区数量是1，那么RDD的分区数据即使输入切片的数据，如果不设置最小分区的数量，即spark调用textFile时会默认传入2，那么RDD的分区数量会打于等于输入切片的数量
+
+-------------------------------------------
+RDD的map方法，是Executor中执行时，是一条一条的将数据拿出来处理
+
+
+mapPartitionsWithIndex 一次拿出一个分区（分区中并没有数据，而是记录要读取哪些数据，真正生成的Task会读取多条数据），并且可以将分区的编号取出来
+
+功能：取分区中对应的数据时，还可以将分区的编号取出来，这样就可以知道数据是属于哪个分区的（哪个区分对应的Task的数据）
+
+	//该函数的功能是将对应分区中的数据取出来，并且带上分区编号
+    val func = (index: Int, it: Iterator[Int]) => {
+      it.map(e => s"part: $index, ele: $e")
+    }
+
+-------------------------------------------
+
+aggregateByKey   是Transformation
+reduceByKey      是Transformation
+filter           是Transformation
+flatMap			 是Transformation
+map              是ransformation
+mapPartition     是ransformation
+mapPartitionWithIndex 是ransformation
+
+
+collect          是Action
+aggregate        是Action
+saveAsTextFile   是Action
+foreach          是Action
+foreachPartition 是Action
+
+-------------------------------------------
+作业，求最受欢迎的老师
+1.在所有的老师中求出最受欢迎的老师Top3
+2.求每个学科中最受欢迎老师的top3（至少用2到三种方式实现）
+
+作业，把你以前用mapReduce实现的案例，全部用spark实现
+
+
+--------------------------------------------
+
+ *  - A list of partitions  （一系列分区，分区有编号，有顺序的）
+ *  - A function for computing each split  （每一个切片都会有一个函数作业在上面用于对数据进行处理）
+ *  - A list of dependencies on other RDDs  （RDD和RDD之间存在依赖关系）
+ *  - Optionally, a Partitioner for key-value RDDs (e.g. to say that the RDD is hash-partitioned)
+ 	（可选，key value类型的RDD才有RDD[(K,V)]）如果是kv类型的RDD，会一个分区器，默认是hash-partitioned
+ *  - Optionally, a list of preferred locations to compute each split on (e.g. block locations for
+ *    an HDFS file)
+ 	（可以，如果是从HDFS中读取数据，会得到数据的最优位置（向Namenode请求元数据））
+
+--------------------------------------------
+
+cache方法，没有生成新的RDD，也没有触发任务执行，只会标记该RDD分区对应的数据（第一次触发Action时）放入到内存
+
+checkpint方法，没有生成新的RDD，也是没有触发Action，也是标记以后触发Action时会将数据保存到HDFS中
+
+根据IP地址计算归属地
+	ip转换成十进制
+	二分法查找
+	广播变量（广播出去的内容一旦广播出去，就不能改变了）、如果需要实时改变的规则，可以将规则放到Redis
+	foreach、forechaPartition是Action，会触发任务提交（Action的特点是会触发任务，有数据计算出的结果产生）
+	collect、take、count（收集到Driver端的Action）
+
+
+--------------------------------------------
+Spark 任务执行的流程
+
+四个步骤
+1.构建DAG（调用RDD上的方法）
+2.DAGScheduler将DAG切分Stage（切分的依据是Shuffle），将Stage中生成的Task以TaskSet的形式给TaskScheduler
+3.TaskScheduler调度Task（根据资源情况将Task调度到相应的Executor中）
+4.Executor接收Task，然后将Task丢入到线程池中执行
+
+--------------------------------------------
+
+DAG 有向无环图（数据执行过程，有方法，无闭环）
+
+DAG描述多个RDD的转换过程，任务执行时，可以按照DAG的描述，执行真正的计算（数据被操作的一个过程）
+
+DAG是有边界的：开始（通过SparkContext创建的RDD），结束（触发Action，调用run Job就是一个完整的DAG就形成了，一旦触发Action就形成了一个完整的DAG）
+
+一个RDD只是描述了数据计算过程中的一个环节，而DGA由一到多个RDD组成，描述了数据计算过程中的所有环节（过程）
+
+一个Spark Application中是有多少个DAG：一到多个（取决于触发了多少次Action）
+
+--------------------------------------------
+
+一个DAG中可能有产生多种不同类型和功能的Task，会有不同的阶段
+
+DAGScheduler：将一个DAG切分成一到多个Stage，DAGScheduler切分的依据是Shuffle（宽依赖）
+
+为什么要切分Stage？
+	一个复杂的业务逻辑（将多台机器上具有相同属性的数据聚合到一台机器上：shuffle）
+	如果有shuffle，那么就意味着前面阶段产生的结果后，才能执行下一个阶段，下一个阶段的计算要依赖上一个阶段的数据。
+	在同一个Stage中，会有多个算子，可以合并在一起，我们称其为pipeline（流水线：严格按照流程、顺序执行）
+
+
+	1.SparkContext哪一端生成的？
+    	Driver端
+
+    2.DAG是在哪一端被构建的？
+        Driver端
+
+    3.RDD是在哪一端生成的？
+    	Driver端
+
+    4.广播变量是在哪一端调用的方法进行广播的？
+    	Driver端
+
+    5.要广播的数据应该在哪一端先创建好再广播呢？
+    	Driver端
+
+    6.调用RDD的算子（Transformation和Action）是在哪一端调用的
+    	Driver端
+
+    7.RDD在调用Transformation和Action时需要传入一个函数，函数是在哪一端声明和传入的?
+    	Driver端
+
+    6.RDD在调用Transformation和Action时需要传入函数，请问传入的函数是在哪一端执行了函数的业务逻辑？
+    	Executor中的Task执行的
+
+    7.自定义的分区器这个类是在哪一端实例化的？
+    	Driver端
+
+    8.分区器中的getParitition方法在哪一端调用的呢？
+    	Executor中的Task中调用的
+
+    9.Task是在哪一端生成的呢？
+    	Driver端
+
+    10.DAG是在哪一端构建好的并被切分成一到多个State的
+    	Driver端
+
+    11.DAG是哪个类完成的切分Stage的功能？
+    	DAGScheduler
+
+    12.DAGScheduler将切分好的Stage以什么样的形式给TaskScheduler
+    	TaskSet

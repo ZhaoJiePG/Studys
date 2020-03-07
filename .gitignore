@@ -1,0 +1,6 @@
+# Project exclude paths
+/Flink/FlinkLearing/target/
+/Spark/KuDu/target/
+/Spark/Learning/target/
+/Spark/Pro_GpsEtl/target/
+/Spark/Pro_SaledScreen/target/
