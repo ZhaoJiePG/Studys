@@ -110,6 +110,7 @@ object DataProcess extends Logging {
         //2.经纬度信息转换为百度api地址
         AddrConvert.fix2Address(gps2fix(temp.getString("lon")), gps2fix(temp.getString("lat")), temp)
       })
+
       //过滤不为空的RDD
       val filterRDD: RDD[(JSONObject, Seq[String], Seq[String], Seq[String], Seq[String], JSONObject)] = positionInfo.filter(_ != null)
       if (!filterRDD.isEmpty()){

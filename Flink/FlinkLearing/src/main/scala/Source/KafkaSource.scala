@@ -18,7 +18,7 @@ object KafkaSource {
     //定义属性
     val properties = new Properties()
     properties.setProperty("bootstrap.servers", "kafka02:9092,kafka03:9092,kafka04:9092")
-    properties.setProperty("group.id", "group1")
+    properties.setProperty("group.id", "group01")
     properties.setProperty("key.deserializer","org.apache.kafka.common.serialization.StringDeserializer")
     properties.setProperty("value.deserializer","org.apache.kafka.common.serialization.StringDeserializer")
     properties.setProperty("auto.offset.reset", "latest")
@@ -27,7 +27,6 @@ object KafkaSource {
     val stream: DataStream[String] = env.addSource(new FlinkKafkaConsumer011[String]("test02",new SimpleStringSchema(),properties))
 
     stream.setParallelism(1).print("kafkaSource:")
-
     env.execute()
   }
 }
