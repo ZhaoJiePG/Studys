@@ -10,6 +10,7 @@
     <modules>
         <module>Spark</module>
         <module>Flink</module>
+        <module>JavaEe</module>
     </modules>
     <packaging>pom</packaging>
     <properties>
@@ -24,14 +25,14 @@
 
     <repositories>
         <repository>
+            <id>alimaven</id>
+            <name>aliyun maven</name>
+            <url>http://maven.aliyun.com/nexus/content/repositories/central/</url>
+        </repository>
+        <repository>
         <id>scala-tools.org</id>
         <name>Scala-Tools Maven2 Repository</name>
         <url>http://scala-tools.org/repo-releases</url>
-        </repository>
-        <repository>
-            <id>central-repos</id>
-            <name>Central Repository</name>
-            <url>http://repo.maven.apache.org/maven2</url>
         </repository>
         <repository>
             <id>central-repos2</id>
@@ -39,19 +40,18 @@
             <url>http://repo1.maven.org/maven2/</url>
         </repository>
         <repository>
+            <id>central-repos</id>
+            <name>Central Repository</name>
+            <url>http://repo.maven.apache.org/maven2</url>
+        </repository>
+
+        <repository>
             <id>cloudera</id>
             <name>cdh Repository 2</name>
             <url>https://repository.cloudera.com/content/repositories/releases/</url>
             <!--<url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>-->
         </repository>
-
-        <repository>
-            <id>alimaven</id>
-            <name>aliyun maven</name>
-            <url>http://maven.aliyun.com/nexus/content/repositories/central/</url>
-        </repository>
     </repositories>
-
 
     <pluginRepositories>
         <pluginRepository>
@@ -303,8 +303,6 @@
                 <artifactId>flink-connector-elasticsearch6_2.11</artifactId>
                 <version>${flink.version}</version>
             </dependency>
-
-
 
         </dependencies>
     </dependencyManagement>

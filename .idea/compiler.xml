@@ -6,15 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="KuDu" />
-        <module name="Pro_SaledScreen" />
         <module name="FlinkLearing" />
-        <module name="SparkLearning" />
+        <module name="KuDu" />
         <module name="Pro_GpsEtl" />
+        <module name="Learning" />
+        <module name="SparkLearning" />
+        <module name="MybatisLearning" />
+        <module name="Pro_SaledScreen" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="FlinkLearning" target="1.5" />
+      <module name="Java" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
