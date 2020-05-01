@@ -9,6 +9,7 @@
         <module name="FlinkLearing" />
         <module name="KuDu" />
         <module name="Pro_GpsEtl" />
+        <module name="MybatisCRUD" />
         <module name="Learning" />
         <module name="SparkLearning" />
         <module name="MybatisLearning" />
