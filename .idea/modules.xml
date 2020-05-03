@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/JavaEe/SpringBoot/HelloWorld/HelloWorld.iml" filepath="$PROJECT_DIR$/JavaEe/SpringBoot/HelloWorld/HelloWorld.iml" />
       <module fileurl="file://$PROJECT_DIR$/Java/Multithread/Java/Multithread.iml" filepath="$PROJECT_DIR$/Java/Multithread/Java/Multithread.iml" />
     </modules>
   </component>
