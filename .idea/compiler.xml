@@ -6,21 +6,25 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="QuickSpringBoot" />
         <module name="HelloWorld" />
         <module name="KuDu" />
         <module name="Pro_GpsEtl" />
         <module name="FlinkLearing" />
-        <module name="Pro_SaledScreen" />
+        <module name="MybatisCRUD" />
         <module name="Learning" />
         <module name="SparkLearning" />
         <module name="MybatisLearning" />
-        <module name="MybatisCRUD" />
+        <module name="Pro_SaledScreen" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="FlinkLearning" target="1.5" />
       <module name="HelloWorld" target="1.5" />
-      <module name="Java" target="1.5" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="QuickSpringBoot" options="-parameters" />
+    </option>
   </component>
 </project>

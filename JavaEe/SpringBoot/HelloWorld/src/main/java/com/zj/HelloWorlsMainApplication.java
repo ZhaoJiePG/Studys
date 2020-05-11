@@ -1,11 +1,7 @@
-/**
+package com.zj; /**
  * Created by ZJ on 2020-5-1
  * comment:
  */
-
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
