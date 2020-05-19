@@ -56,8 +56,4 @@
         select count(id) from user;
     </select>
 
-    <!-- 根据queryVo的条件查询用户 -->
-    <select id="findUserByVo" parameterType="domain.QueryVo" resultMap="userMap">
-        select * from user where username like #{user.username}
-    </select>
 </mapper>

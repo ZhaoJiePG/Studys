@@ -11,5 +11,8 @@
 
     <artifactId>Mybatis</artifactId>
     <packaging>pom</packaging>
+    <modules>
+        <module>MybatisiDAO</module>
+    </modules>
 
 </project>

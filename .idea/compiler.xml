@@ -14,12 +14,13 @@
         <module name="MybatisCRUD" />
         <module name="Learning" />
         <module name="SparkLearning" />
-        <module name="MybatisLearning" />
+        <module name="MybatisiDAO" />
         <module name="Pro_SaledScreen" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="HelloWorld" target="1.5" />
+      <module name="MybatisLearning" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

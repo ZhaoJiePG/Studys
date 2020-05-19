@@ -1,4 +1,5 @@
 import dao.IUserDao;
+import domain.QueryVo;
 import domain.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -8,8 +9,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
@@ -58,17 +57,100 @@ public class MybatisCRUD {
     }
 
     /**
-     * 新增方法
+     * 保存用户
      */
     @Test
     public void testAddUser(){
         User user = new User();
-        user.setUsername("mybatis_test");
-        user.setAddress("江苏省无锡市");
-        user.setSex("男");
-        user.setBirthday(new Date());
-
+        user.setUserName("zhaojie");
+        user.setUserAddress("江苏省无锡市");
+        user.setUserSex("男");
+        user.setUserBirthday(new Date());
+        System.out.println("保存之前"+user);
+        //执行保存
         userDao.saveUser(user);
+        System.out.println("保存之后"+user);
     }
+
+    /**
+     *测试更新操作
+     */
+    @Test
+    public void testUpdate(){
+        User user = new User();
+        user.setUserId(50);
+        user.setUserName("mybatis_test");
+        user.setUserAddress("江苏省无锡市");
+        user.setUserSex("男");
+        user.setUserBirthday(new Date());
+
+        //执行更新方法
+        userDao.updateUser(user);
+    }
+
+    /**
+     *测试删除操作
+     */
+    @Test
+    public void testDelete(){
+        User user = new User();
+        user.setUserId(50);
+        user.setUserName("mybatis_test");
+        user.setUserAddress("江苏省无锡市");
+        user.setUserSex("男");
+        user.setUserBirthday(new Date());
+
+        //执行更新方法
+        userDao.deleteUser(42);
+    }
+
+    /**
+     *测试查询方法
+     */
+    @Test
+    public void testFindOne(){
+        //执行查询方法
+        User user = userDao.findUserById(41);
+        System.out.println(user);
+    }
+
+    /**
+     *测试模糊查询方法
+     */
+    @Test
+    public void testFindByName(){
+        //执行查询方法
+//        List<User> users = userDao.findUserByName("%王%");
+        List<User> users = userDao.findUserByName("王");
+        for (User user : users){
+            System.out.println(user);
+        }
+    }
+
+    /**
+     *查询总数
+     */
+    @Test
+    public void findTotal(){
+        //执行查询方法
+        int all = userDao.findTotal();
+        System.out.println(all);
+    }
+
+    /**
+     *更具QueryVo查询中的条件查询用户
+     */
+    @Test
+    public void findUserByVo(){
+        //执行查询方法
+        QueryVo vo = new QueryVo();
+        User user = new User();
+        user.setUserName("%王%");
+        List<User> userByVo = userDao.findUserByVo(vo);
+        for(User user1 : userByVo){
+            System.out.println(user1);
+        }
+    }
+
 
 }
