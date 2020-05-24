@@ -12,6 +12,7 @@
       <set>
         <option value="$PROJECT_DIR$/Flink/Learning/pom.xml" />
         <option value="$PROJECT_DIR$/Java/pom.xml" />
+        <option value="$PROJECT_DIR$/JavaEe/Mybatis/DataSourceAndTx/pom.xml" />
         <option value="$PROJECT_DIR$/JavaEe/Mybatis/MybatisLearning/pom.xml" />
         <option value="$PROJECT_DIR$/JavaEe/SpringBoot/HelloWorld/pom.xml" />
         <option value="$PROJECT_DIR$/Multithread/pom.xml" />

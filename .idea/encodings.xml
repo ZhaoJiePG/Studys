@@ -6,8 +6,9 @@
     <file url="file://$PROJECT_DIR$/Flink/FlinkLearing" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JavaEe" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JavaEe/Mybatis" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JavaEe/Mybatis/MybatisAnnontation" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JavaEe/Mybatis/MybatisCRUD" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/JavaEe/Mybatis/MybatisLearning" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JavaEe/Mybatis/MybatisDynamicSql" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JavaEe/Mybatis/MybatisiDAO" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JavaEe/SpringBoot" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JavaEe/SpringBoot/HelloWorld" charset="UTF-8" />
