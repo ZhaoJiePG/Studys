@@ -66,8 +66,8 @@
         </dependency>
 
         <dependency>
-            <groupId>common-dbutils</groupId>
-            <artifactId>common-dbutils</artifactId>
+            <groupId>commons-dbutils</groupId>
+            <artifactId>commons-dbutils</artifactId>
             <version>1.4</version>
         </dependency>
     </dependencies>
