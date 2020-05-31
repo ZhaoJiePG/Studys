@@ -20,6 +20,7 @@
         <module>Mybatis/MybatisLearning</module>
         <module>Mybatis/MybatisCRUD</module>
         <module>SpringBoot</module>
+        <module>Spring</module>
     </modules>
 
     <dependencyManagement>
