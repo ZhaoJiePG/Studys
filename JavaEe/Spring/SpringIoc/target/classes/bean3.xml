@@ -58,10 +58,59 @@
        弊端：
            如果有某个成员必须有值，则获取对象是有可能set方法没有执行。
    -->
-    <bean id="accountService2" class="com.itheima.service.impl.AccountServiceImpl2">
+    <bean id="accountService2" class="com.zj.service.impl.AccountServiceImpl4">
         <property name="name" value="TEST" ></property>
         <property name="age" value="21"></property>
         <property name="birthday" ref="now"></property>
+    </bean>
+
+    <!-- 复杂类型的注入/集合类型的注入
+        用于给List结构集合注入的标签：
+            list array set
+        用于个Map结构集合注入的标签:
+            map  props
+        结构相同，标签可以互换
+    -->
+    <bean id="accountService3" class="com.zj.service.impl.AccountServiceImpl5">
+    <property name="myStrs">
+        <set>
+            <value>AAA</value>
+            <value>BBB</value>
+            <value>CCC</value>
+        </set>
+    </property>
+
+    <property name="myList">
+        <array>
+            <value>AAA</value>
+            <value>BBB</value>
+            <value>CCC</value>
+        </array>
+    </property>
+
+    <property name="mySet">
+        <list>
+            <value>AAA</value>
+            <value>BBB</value>
+            <value>CCC</value>
+        </list>
+    </property>
+
+    <property name="myMap">
+        <props>
+            <prop key="testC">ccc</prop>
+            <prop key="testD">ddd</prop>
+        </props>
+    </property>
+
+    <property name="myProps">
+        <map>
+            <entry key="testA" value="aaa"></entry>
+            <entry key="testB">
+                <value>BBB</value>
+            </entry>
+        </map>
+    </property>
     </bean>
 </beans>
 

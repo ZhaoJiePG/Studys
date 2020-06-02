@@ -22,7 +22,7 @@ public class Client {
 //        System.out.println(as);
 //        IAccountDao adao = ac.getBean("accountDao1",IAccountDao.class);
 //        System.out.println(adao);
-        as.saveAccount();
+//        as.saveAccount();
         ac.close();
     }
 }

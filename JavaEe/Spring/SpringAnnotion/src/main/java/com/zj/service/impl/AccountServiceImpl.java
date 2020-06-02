@@ -1,17 +1,12 @@
 package com.zj.service.impl;
 
 import com.zj.dao.IAccountDao;
+import com.zj.domain.Account;
 import com.zj.service.IAccountService;
-import jdk.nashorn.internal.objects.annotations.Constructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 账户的业务层实现类
@@ -22,28 +17,32 @@ import javax.annotation.Resource;
  *      <property name=""  value="" | ref=""></property>
  *  </bean>
  *
- *
  */
 
 @Service("accountService")
 //@Scope("prototype")
 public class AccountServiceImpl implements IAccountService {
-//    @Autowired
-//    @Qualifier("accountDao1")
-    @Resource(name = "accountDao1")
-    private IAccountDao accountDao = null;
 
-    @Constructor
-    public void  init(){
-        System.out.println("初始化方法执行了");
+    @Autowired
+    private IAccountDao accountDao;
+
+    public List<Account> findList() {
+        return accountDao.findList();
     }
 
-    @PreDestroy
-    public void  destroy(){
-        System.out.println("销毁方法执行了");
+    public Account findAccountById(Integer accountId) {
+        return null;
     }
 
-    public void  saveAccount(){
-        accountDao.saveAccount();
+    public void saveAccount(Account account) {
+        accountDao.saveAccount(account);
+    }
+
+    public void updateAccount(Account account) {
+        accountDao.updateAccount(account);
+    }
+
+    public void deleteAccount(Integer accountId) {
+        accountDao.deleteAccount(accountId);
     }
 }
