@@ -17,7 +17,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>Mybatis</module>
-        <module>Mybatis/MybatisLearning</module>
         <module>Mybatis/MybatisCRUD</module>
         <module>SpringBoot</module>
         <module>Spring</module>

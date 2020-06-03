@@ -6,13 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Scala" />
         <module name="Learning" />
         <module name="SparkLearning" />
-        <module name="MybatisAnnontation" />
+        <module name="Scala" />
         <module name="Pro_SaledScreen" />
-        <module name="SpringIoc" />
+        <module name="MybatisAnnontation" />
         <module name="MybatisiDAO" />
+        <module name="Pro_GpsEtl" />
         <module name="FlinkLearing" />
         <module name="SpringAnnotion" />
         <module name="HelloWorld" />
@@ -21,7 +21,7 @@
         <module name="KuDu" />
         <module name="MybatisDynamicSql" />
         <module name="quickspringboot" />
-        <module name="Pro_GpsEtl" />
+        <module name="SpringIoc" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

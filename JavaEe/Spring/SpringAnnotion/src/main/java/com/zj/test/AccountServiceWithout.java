@@ -2,9 +2,11 @@ package com.zj.test;
 
 import com.zj.domain.Account;
 import com.zj.service.IAccountService;
+import config.SpringConfiguration;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
@@ -20,7 +22,7 @@ public class AccountServiceWithout {
 
     @Before
     public void init(){
-        ac = new ClassPathXmlApplicationContext("beanIoc.xml");
+        ac = new AnnotationConfigApplicationContext(SpringConfiguration.class);
         //根据id获取Bean对象
         as  = (IAccountService)ac.getBean("accountService");
 
