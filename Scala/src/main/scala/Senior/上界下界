@@ -1,0 +1,54 @@
+    UpperBounds
+
+在 Java 泛型里表示某个类型是 Test 类型的子类型，使用 extends 关键字：
+
+    <T extends Test>
+
+    //或用通配符的形式：
+    <? extends Test>
+
+这种形式也叫 upperbounds(上限或上界)，同样的意思在 Scala 的写法为：
+
+    [T <: Test]
+
+    //或用通配符:
+    [_ <: Test]
+
+
+
+    LowerBounds
+
+在 Java 泛型里表示某个类型是 Test 类型的父类型，使用 super 关键字：
+
+    <T super Test>
+
+    //或用通配符的形式：
+    <? super Test>
+
+这种形式也叫 lowerbounds(下限或下界)，同样的意思在 scala 的写法为：
+
+    [T >: Test]
+
+    //或用通配符:
+    [_ >: Test]
+
+    Viewbounds
+
+
+视图界定/上下文界定
+
+Viewbounds
+<% 的意思是“viewbounds”(视界)，它比  <: 适用的范围更广，除了所有的子类型，还允许隐式转换过去的类型。
+
+    def method[A <% B](arglist):R=...
+
+    等价于:
+    def method[A](arglist)(implicit viewAB:A=>B):R=...
+    或等价于:
+    implicit def conver(a:A):B= …
+    <% 除了方法使用之外，class 声明类型参数时也可使用：
+    class A[T<%Int]
+
+    Contextbounds
+
+与 viewbounds 一样 contextbounds(上下文界定)也是隐式参数的语法糖。为语法上的方便， 引入了”上下文界定”这个概念
