@@ -11,8 +11,9 @@
     <file url="file://$PROJECT_DIR$/JavaEe/Mybatis/MybatisDynamicSql" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JavaEe/Mybatis/MybatisiDAO" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JavaEe/Spring" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/JavaEe/Spring/SpringAnnotion" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/JavaEe/Spring/SpringIoc" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JavaEe/Spring/SpringAopXml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JavaEe/Spring/SpringIocAnnotion" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JavaEe/Spring/SpringIocXml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JavaEe/SpringBoot" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JavaEe/SpringBoot/HelloWorld" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JavaEe/SpringBoot/QuickSpringBoot" charset="UTF-8" />

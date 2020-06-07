@@ -13,8 +13,9 @@
 
     <packaging>pom</packaging>
     <modules>
-        <module>SpringIoc</module>
-        <module>SpringAnnotion</module>
+        <module>SpringIocXml</module>
+        <module>SpringIocAnnotion</module>
+        <module>SpringAopXml</module>
     </modules>
 
     <dependencies>
