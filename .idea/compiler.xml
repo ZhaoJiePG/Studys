@@ -6,15 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Scala" />
         <module name="SpringAopXml" />
+        <module name="SpiderBasic" />
         <module name="Learning" />
         <module name="SparkLearning" />
+        <module name="Scala" />
         <module name="MybatisAnnontation" />
-        <module name="Pro_SaledScreen" />
         <module name="SpringIoc" />
         <module name="SpringIocXml" />
         <module name="FlinkLearing" />
+        <module name="SpringIocAnnotion" />
         <module name="SpringAnnotion" />
         <module name="MybatisiDAO" />
         <module name="MybatisCRUD" />
@@ -22,6 +23,7 @@
         <module name="KuDu" />
         <module name="MybatisDynamicSql" />
         <module name="quickspringboot" />
+        <module name="Pro_SaledScreen" />
         <module name="Pro_GpsEtl" />
         <module name="HelloWorld" />
       </profile>
@@ -30,8 +32,6 @@
       <module name="DataSourceAndTx" target="1.5" />
       <module name="HelloWorld" target="1.5" />
       <module name="MybatisLearning" target="1.5" />
-      <module name="SpringIoc" target="1.5" />
-      <module name="SpringIocAnnotion" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
