@@ -60,8 +60,7 @@
         <!--配置切面 -->
         <aop:aspect id="logAdvice" ref="logger">
             <!-- 配置通知的类型，并且建立通知方法和切入点方法的关联-->
-<!--            <aop:before method="printLog" pointcut="execution(* com.itheima.service.impl.*.*(..))"></aop:before>-->
-            <aop:before method="printLog" pointcut="execution(public void com.itheima.service.impl.AccountServiceImpl.saveAccount())"></aop:before>
+            <aop:before method="printLog" pointcut="execution(* com.itheima.service.impl.*.*(..))"></aop:before>
         </aop:aspect>
     </aop:config>
 
