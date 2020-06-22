@@ -9,14 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>Spring</artifactId>
-
+    <artifactId>SpringMVC</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>SpringIocXml</module>
-        <module>SpringIocAnnotion</module>
-        <module>SpringAopXml</module>
-        <module>SpringAopAnnotion</module>
+        <module>SpringMVCStart</module>
     </modules>
 
 </project>
