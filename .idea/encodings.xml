@@ -5,6 +5,7 @@
     <file url="file://$PROJECT_DIR$/Flink" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Flink/FlinkLearing" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JavaEe" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JavaEe/ELK" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JavaEe/Mybatis" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JavaEe/Mybatis/MybatisAnnontation" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JavaEe/Mybatis/MybatisCRUD" charset="UTF-8" />
@@ -18,9 +19,10 @@
     <file url="file://$PROJECT_DIR$/JavaEe/SpringBoot" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JavaEe/SpringBoot/HelloWorld" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JavaEe/SpringBoot/QuickSpringBoot" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JavaEe/SpringDataJpa" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JavaEe/SpringDataJpa/JpaStart" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JavaEe/SpringMVC" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JavaEe/SpringMVC/SpringMVCStart" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/JavaEe/SpringMVC/SpringMvcStart" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JavaUtils" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JavaUtils/JavaSpider" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JavaUtils/JavaSpider/SpiderBasic" charset="UTF-8" />

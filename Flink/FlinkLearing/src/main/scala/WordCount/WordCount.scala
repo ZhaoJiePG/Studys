@@ -16,7 +16,7 @@ object WordCount {
     val env: ExecutionEnvironment = ExecutionEnvironment.getExecutionEnvironment
 
     // 从文件中读取数据
-    val inputPath = "D:\\Maven\\SparkFlink\\Flink\\src\\main\\resources\\hello.txt"
+    val inputPath = "D:\\Maven\\Studys\\Flink\\FlinkLearing\\src\\main\\Data\\hello.txt"
     val inputDataSet: DataSet[String] = env.readTextFile(inputPath)
 
     // 分词之后做count

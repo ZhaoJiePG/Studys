@@ -1,0 +1,22 @@
+      @Entity
+        	作用：指定当前类是实体类。
+        @Table
+        	作用：指定实体类和表之间的对应关系。
+        	属性：
+        		name：指定数据库表的名称
+        @Id
+        	作用：指定当前字段是主键。
+        @GeneratedValue
+        	作用：指定主键的生成方式。。
+        	属性：
+        		strategy ：指定主键生成策略。
+        @Column
+        	作用：指定实体类属性和数据库表之间的对应关系
+        	属性：
+        		name：指定数据库表的列名称。
+        		unique：是否唯一
+        		nullable：是否可以为空
+        		inserttable：是否可以插入
+        		updateable：是否可以更新
+        		columnDefinition: 定义建表时创建此列的DDL
+        		secondaryTable: 从表名。如果此列不建在主表上（默认建在主表），该属性定义该列所在从表的名字搭建开发环境[重点]

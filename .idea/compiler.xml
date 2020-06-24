@@ -8,32 +8,32 @@
         <outputRelativeToContentRoot value="true" />
         <module name="SpringAopAnnotion" />
         <module name="SpringAopXml" />
+        <module name="SpiderBasic" />
+        <module name="Learning" />
         <module name="SparkLearning" />
-        <module name="Scala" />
-        <module name="Pro_SaledScreen" />
         <module name="MybatisAnnontation" />
+        <module name="Pro_SaledScreen" />
+        <module name="JpaStart" />
         <module name="SpringIoc" />
-        <module name="KuDu" />
-        <module name="SpringIocXml" />
-        <module name="SpringIocAnnotion" />
-        <module name="FlinkLearing" />
-        <module name="QuickSpringBoot" />
-        <module name="SpringAnnotion" />
         <module name="MybatisiDAO" />
+        <module name="SpringIocXml" />
+        <module name="FlinkLearing" />
+        <module name="SpringAnnotion" />
+        <module name="MybatisDynamicSql" />
         <module name="MybatisCRUD" />
         <module name="SpringMVCStart" />
-        <module name="HelloWorld" />
-        <module name="Learning" />
-        <module name="MybatisDynamicSql" />
+        <module name="Scala" />
+        <module name="KuDu" />
+        <module name="SpringIocAnnotion" />
         <module name="quickspringboot" />
         <module name="Pro_GpsEtl" />
-        <module name="SpiderBasic" />
+        <module name="QuickSpringBoot" />
+        <module name="HelloWorld" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="DataSourceAndTx" target="1.5" />
       <module name="MybatisLearning" target="1.5" />
-      <module name="SpringMvcStart" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

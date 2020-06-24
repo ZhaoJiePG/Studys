@@ -21,6 +21,8 @@
         <module>SpringBoot</module>
         <module>Spring</module>
         <module>SpringMVC</module>
+        <module>SpringDataJpa</module>
+        <module>ELK</module>
     </modules>
 
     <dependencyManagement>
@@ -174,6 +176,20 @@
             <version>2.0</version>
             <scope>provided</scope>
         </dependency>
+
+        <!--Jpa-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>5.0.7.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.0.7.Final</version>
+        </dependency>
+
+
     </dependencies>
 
 </project>

@@ -19,15 +19,16 @@ object StreamWordCount {
     val port: Int = params.getInt("port")
 
     // 创建一个流处理的执行环境
-    val env = StreamExecutionEnvironment.getExecutionEnvironment
+    val env: StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
+    // 指定分区数（并行数）
     //    env.setParallelism(1)
     //    env.disableOperatorChaining()
 
     // 接收socket数据流
-    val textDataStream = env.socketTextStream(host, port)
+    val textDataStream: DataStream[String] = env.socketTextStream(host, port)
 
     // 逐一读取数据，分词之后进行wordcount
-    val wordCountDataStream = textDataStream.flatMap(_.split(" "))
+    val wordCountDataStream: DataStream[(String, Int)] = textDataStream.flatMap(_.split(" "))
       .filter(_.nonEmpty).startNewChain()
       .map( (_, 1) )
       .keyBy(0)
