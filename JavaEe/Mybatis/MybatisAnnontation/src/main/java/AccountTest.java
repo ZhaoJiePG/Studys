@@ -1,5 +1,5 @@
 
-import dao.IAccountDao;
+import utils.IAccountDao;
 import domain.Account;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;

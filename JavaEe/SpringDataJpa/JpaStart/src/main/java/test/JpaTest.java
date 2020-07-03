@@ -1,7 +1,10 @@
 package test;
 
 import domain.Customer;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
+import utils.JpaUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -36,4 +39,6 @@ public class JpaTest {
         em.close();
         factory.close();
     }
+
+
 }

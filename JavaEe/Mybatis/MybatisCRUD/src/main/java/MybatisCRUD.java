@@ -1,4 +1,4 @@
-import dao.IUserDao;
+import utils.IUserDao;
 import domain.QueryVo;
 import domain.User;
 import org.apache.ibatis.io.Resources;

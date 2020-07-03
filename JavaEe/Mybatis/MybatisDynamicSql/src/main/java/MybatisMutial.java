@@ -1,5 +1,5 @@
-import dao.IAccountDao;
-import dao.IUserDao;
+import utils.IAccountDao;
+import utils.IUserDao;
 import domain.Account;
 import domain.AccountUser;
 import domain.User;

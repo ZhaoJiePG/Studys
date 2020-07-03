@@ -1,5 +1,5 @@
 
-import dao.IRoleDao;
+import utils.IRoleDao;
 import domain.Role;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;

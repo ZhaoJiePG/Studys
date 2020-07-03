@@ -1,4 +1,4 @@
-package dao;
+package utils;
 
 import domain.User;
 import org.apache.ibatis.annotations.*;

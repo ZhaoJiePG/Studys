@@ -1,5 +1,5 @@
 
-import dao.IUserrDao;
+import utils.IUserrDao;
 import domain.Userr;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;

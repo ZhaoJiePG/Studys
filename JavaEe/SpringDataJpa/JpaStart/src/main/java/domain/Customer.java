@@ -12,6 +12,19 @@ public class Customer implements Serializable {
 
     @Id//声明当前私有属性为主键
     @GeneratedValue(strategy=GenerationType.IDENTITY) //配置主键的生成策略
+    //SEQUENCE：根据底层数据库的序列来生成主键，条件是数据库支持序列。
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE,generator="payablemoney_seq")
+    //@SequenceGenerator(name="payablemoney_seq", sequenceName="seq_payment")
+    //AUTO：主键由程序控制
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+
+    @TableGenerator(name = "pk_gen",
+            table="tb_generator",
+            pkColumnName="gen_name",
+            valueColumnName="gen_value",
+            pkColumnValue="PAYABLEMOENY_PK",
+            allocationSize=1
+    )
     @Column(name="cust_id") //指定和表中cust_id字段的映射关系
     private Long custId;
 
@@ -74,5 +87,9 @@ public class Customer implements Serializable {
     }
     public void setCustPhone(String custPhone) {
         this.custPhone = custPhone;
+    }
+
+    public String toString(){
+        return this.custName + "\"" + this.custId;
     }
 }

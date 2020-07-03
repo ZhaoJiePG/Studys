@@ -1,4 +1,4 @@
-package dao;
+package utils;
 
 import domain.Account;
 import domain.AccountUser;
