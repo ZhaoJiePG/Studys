@@ -1,4 +1,4 @@
-package bean;
+package com.zj.bean;
 
 /**
  * Created by ZJ on 2020/5/11

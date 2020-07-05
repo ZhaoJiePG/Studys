@@ -1,4 +1,4 @@
-package com.zj.quickspringboot;
+package com.zj;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

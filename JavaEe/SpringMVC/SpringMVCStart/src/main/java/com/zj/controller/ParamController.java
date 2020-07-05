@@ -1,6 +1,7 @@
 package com.zj.controller;
 
 import com.zj.domain.Account;
+import com.zj.domain.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -31,4 +32,15 @@ public class ParamController {
         System.out.println(account.toString());
         return "success";
     }
+    /**
+     * 自定义类型转换器
+     * @return
+     */
+    @RequestMapping("/saveUser")
+    public String SaveUser(User user){
+        System.out.println(user.toString());
+        return "success";
+    }
+
+
 }

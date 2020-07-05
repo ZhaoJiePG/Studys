@@ -12,8 +12,7 @@
     <artifactId>SpringBoot</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>HelloWorld</module>
+        <module>QuickSpringBoot</module>
     </modules>
-
 
 </project>
