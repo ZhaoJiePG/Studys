@@ -1,0 +1,33 @@
+2020-07-06 23:18:23.872  INFO 18588 --- [main] com.zj.QuickspringbootApplicationTests   : Starting QuickspringbootApplicationTests on DESKTOP-IU0TLLP with PID 18588 (started by MECHREVO in D:\Maven\Studys\JavaEe\SpringBoot\QuickSpringBoot)
+2020-07-06 23:18:23.873 DEBUG 18588 --- [main] com.zj.QuickspringbootApplicationTests   : Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-07-06 23:18:23.873  INFO 18588 --- [main] com.zj.QuickspringbootApplicationTests   : No active profile set, falling back to default profiles: default
+2020-07-06 23:18:25.361  INFO 18588 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-06 23:18:25.749  INFO 18588 --- [main] com.zj.QuickspringbootApplicationTests   : Started QuickspringbootApplicationTests in 2.26 seconds (JVM running for 3.404)
+2020-07-06 23:18:26.001 TRACE 18588 --- [main] com.zj.QuickspringbootApplicationTests   : 这是trace日志。。。。
+2020-07-06 23:18:26.002 DEBUG 18588 --- [main] com.zj.QuickspringbootApplicationTests   : 这是debug日志。。。
+2020-07-06 23:18:26.002  INFO 18588 --- [main] com.zj.QuickspringbootApplicationTests   : 这是info日志。。。
+2020-07-06 23:18:26.002  WARN 18588 --- [main] com.zj.QuickspringbootApplicationTests   : 这是warn日志。。。
+2020-07-06 23:18:26.002 ERROR 18588 --- [main] com.zj.QuickspringbootApplicationTests   : 这是error日志。。。
+2020-07-06 23:18:26.026  INFO 18588 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+{yyy-MM-dd HH:mm:ss.SSS}======main======INFO ======com.zj.QuickspringbootApplicationTests - Starting QuickspringbootApplicationTests on DESKTOP-IU0TLLP with PID 10200 (started by MECHREVO in D:\Maven\Studys\JavaEe\SpringBoot\QuickSpringBoot)
+{yyy-MM-dd HH:mm:ss.SSS}======main======DEBUG======com.zj.QuickspringbootApplicationTests - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+{yyy-MM-dd HH:mm:ss.SSS}======main======INFO ======com.zj.QuickspringbootApplicationTests - No active profile set, falling back to default profiles: default
+{yyy-MM-dd HH:mm:ss.SSS}======main======INFO ======o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+{yyy-MM-dd HH:mm:ss.SSS}======main======INFO ======com.zj.QuickspringbootApplicationTests - Started QuickspringbootApplicationTests in 1.836 seconds (JVM running for 2.799)
+{yyy-MM-dd HH:mm:ss.SSS}======main======TRACE======com.zj.QuickspringbootApplicationTests - 这是trace日志。。。。
+{yyy-MM-dd HH:mm:ss.SSS}======main======DEBUG======com.zj.QuickspringbootApplicationTests - 这是debug日志。。。
+{yyy-MM-dd HH:mm:ss.SSS}======main======INFO ======com.zj.QuickspringbootApplicationTests - 这是info日志。。。
+{yyy-MM-dd HH:mm:ss.SSS}======main======WARN ======com.zj.QuickspringbootApplicationTests - 这是warn日志。。。
+{yyy-MM-dd HH:mm:ss.SSS}======main======ERROR======com.zj.QuickspringbootApplicationTests - 这是error日志。。。
+{yyy-MM-dd HH:mm:ss.SSS}======SpringContextShutdownHook======INFO ======o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-06 23:24:00.308======main======INFO ======com.zj.QuickspringbootApplicationTests - Starting QuickspringbootApplicationTests on DESKTOP-IU0TLLP with PID 19624 (started by MECHREVO in D:\Maven\Studys\JavaEe\SpringBoot\QuickSpringBoot)
+2020-07-06 23:24:00.309======main======DEBUG======com.zj.QuickspringbootApplicationTests - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-07-06 23:24:00.309======main======INFO ======com.zj.QuickspringbootApplicationTests - No active profile set, falling back to default profiles: default
+2020-07-06 23:24:01.530======main======INFO ======o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-06 23:24:01.880======main======INFO ======com.zj.QuickspringbootApplicationTests - Started QuickspringbootApplicationTests in 1.902 seconds (JVM running for 2.886)
+2020-07-06 23:24:02.053======main======TRACE======com.zj.QuickspringbootApplicationTests - 这是trace日志。。。。
+2020-07-06 23:24:02.053======main======DEBUG======com.zj.QuickspringbootApplicationTests - 这是debug日志。。。
+2020-07-06 23:24:02.054======main======INFO ======com.zj.QuickspringbootApplicationTests - 这是info日志。。。
+2020-07-06 23:24:02.054======main======WARN ======com.zj.QuickspringbootApplicationTests - 这是warn日志。。。
+2020-07-06 23:24:02.054======main======ERROR======com.zj.QuickspringbootApplicationTests - 这是error日志。。。
+2020-07-06 23:24:02.068======SpringContextShutdownHook======INFO ======o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'

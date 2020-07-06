@@ -1,5 +1,20 @@
 server:
   port: 8081
+#spring:
+#  profiles:
+#    active: prd
+
+#日志设置
+logging:
+  level:
+    com.zj: trace
+  file:
+    path: ./log/spingboot.log
+    #    在控制台输出的格式
+  pattern:
+    console: "%d{yyy-MM-dd HH:mm:ss.SSS} %thread %-5level %logger{50} - %msg%n"
+#    在文件中输出的格式
+    file: "%d{yyy-MM-dd HH:mm:ss.SSS}======%thread======%-5level======%logger{50} - %msg%n"
 
 person:
   age: 18
@@ -13,3 +28,14 @@ person:
     name: 小狗
     age: 2
   last-name: 孙燕婷
+---
+server:
+  port: 8083
+spring:
+  profiles: dev
+
+---
+server:
+  port: 8084
+spring:
+  profiles: prd
