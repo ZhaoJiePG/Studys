@@ -14,7 +14,7 @@ public class HellWorld {
         CloseableHttpClient httpClient = HttpClients.createDefault();
 
         //创建HttpGet请求
-        HttpGet httpGet = new HttpGet("http://www.itcast.cn/");
+        HttpGet httpGet = new HttpGet("http://www.baidu.com/");
 
         CloseableHttpResponse response = null;
 

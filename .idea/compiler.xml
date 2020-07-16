@@ -15,6 +15,7 @@
         <module name="JpaStart" />
         <module name="SpringIoc" />
         <module name="MybatisiDAO" />
+        <module name="SpringBootData" />
         <module name="JpaSpring" />
         <module name="SpringIocXml" />
         <module name="FlinkLearing" />
