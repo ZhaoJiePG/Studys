@@ -13,9 +13,17 @@
     <packaging>pom</packaging>
     <modules>
         <module>MybatisiDAO</module>
-        <module>DataSourceAndTx</module>
         <module>MybatisDynamicSql</module>
         <module>MybatisAnnontation</module>
+        <module>MybatisCRUD</module>
     </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.4.5</version>
+        </dependency>
+    </dependencies>
 
 </project>
