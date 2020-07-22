@@ -1,9 +1,9 @@
 package com.yadea.pojo;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.baomidou.mybatisplus.annotation.*;
+import lombok.*;
+
+import java.util.Date;
 
 /**
  * Created by ZJ on 2020/7/22
@@ -14,8 +14,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @TableName(value = "users",schema = "test")
 public class Users {
+    //对应数据库中的主键（uuid、自增id、雪花算法、redis、zookeeper）
+    @TableId(type = IdType.ID_WORKER)
     private Long id;
+
     private String name;
     private Integer age;
     private String email;
+    @TableField(value = "create_time",fill = FieldFill.INSERT)
+    private Date createTime;
+    @TableField(value = "update_time",fill = FieldFill.INSERT_UPDATE)
+    private Date updateTime;
 }

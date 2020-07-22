@@ -32,4 +32,24 @@ public class TestCrud {
             System.out.println(user);
         }
     }
+
+    @Test
+    public void insert(){
+        Users users = new Users();
+        users.setName("yadea2");
+        users.setAge(3);
+        users.setEmail("qq.com");
+        int insert = userMapper.insert(users);
+        System.out.println(insert);
+    }
+
+    @Test
+    public void update(){
+        Users users = new Users();
+        users.setName("yadea");
+        users.setAge(3);
+        users.setEmail("qq1.com");
+        int insert = userMapper.updateById(users);
+        System.out.println(insert);
+    }
 }

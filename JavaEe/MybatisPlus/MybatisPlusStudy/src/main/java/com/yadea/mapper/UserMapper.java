@@ -5,6 +5,8 @@ import com.yadea.pojo.Users;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created by ZJ on 2020/7/22
  * comment:
@@ -16,4 +18,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserMapper extends BaseMapper<Users> {
     //所有crud操作已完成
+
 }
