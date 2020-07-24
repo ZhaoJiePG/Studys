@@ -25,4 +25,12 @@ public class Users {
     private Date createTime;
     @TableField(value = "update_time",fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
+
+    //乐观锁注释
+    @Version
+    private Integer version;
+
+    //逻辑删除注解
+    @TableLogic
+    private Integer deleted;
 }
