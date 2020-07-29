@@ -1,11 +1,6 @@
 package config;
 
-import com.mchange.v2.c3p0.ComboPooledDataSource;
-import org.apache.commons.dbutils.QueryRunner;
 import org.springframework.context.annotation.*;
-
-import javax.sql.DataSource;
-import java.beans.PropertyVetoException;
 
 /**
  * Created by ZJ on 2020/6/2
@@ -38,7 +33,7 @@ import java.beans.PropertyVetoException;
  *          关键字：classpath：表示类路径下
  */
 //@Configuration
-@ComponentScan(basePackages = {"com.zj"})
+@ComponentScan(basePackages = {"com.yadea"})
 @Import(JDBCConfig.class)
 @PropertySource("classpath:jdbcconfig.properties")
 //@ComponentScan(basePackages = {"com.zj","com.config"})

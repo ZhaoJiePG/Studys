@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @EnableTransactionManagement
 //扫描包
-@MapperScan("com.yadea.mapper")
+@MapperScan("com.yadea.zj.mapper")
 @Configuration
 public class MybatisPlusConfig {
 

@@ -4,13 +4,13 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!-- 配置Service -->
-    <bean id="accountService" class="com.zj.service.impl.AccountServiceImpl">
+    <bean id="accountService" class="com.yadea.zj.service.impl.AccountServiceImpl">
         <!-- 注入dao -->
         <property name="accountDao" ref="accountDao"></property>
     </bean>
 
     <!--配置Dao对象-->
-    <bean id="accountDao" class="com.zj.dao.impl.AccountDaoImpl">
+    <bean id="accountDao" class="com.yadea.dao.impl.AccountDaoImpl">
         <!-- 注入QueryRunner -->
         <property name="runner" ref="runner"></property>
     </bean>

@@ -1,4 +1,4 @@
-package com.zj.wc
+package com.yadea.wc
 
 import org.apache.flink.api.scala._
 

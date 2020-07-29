@@ -1,4 +1,4 @@
-package com.zj.source
+package com.yadea.source
 
 import org.apache.flink.streaming.api.scala._
 

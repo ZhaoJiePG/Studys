@@ -15,8 +15,8 @@
         在spring的配置文件中使用bean标签，配以id和class属性后，且没有其他属性标签时。
         采用的是默认构造器创建bean对象，此时如果类中没有默认构造函数，则无法创建对象
     -->
-    <bean id="accountService" class="com.zj.service.impl.AccountServiceImpl" scope="prototype"
-    init-method="init" destroy-method="distory"></bean>
+    <bean id="accountService" class="com.yadea.zj.service.impl.AccountServiceImpl" scope="prototype"
+          init-method="init" destroy-method="distory"></bean>
 
     <!--第二种：使用普通工厂中的方法创建对象(使用某个类中的方法创建对象并存入spring容器)
     -->

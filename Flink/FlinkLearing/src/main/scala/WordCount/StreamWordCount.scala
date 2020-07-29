@@ -1,4 +1,4 @@
-package com.zj.wc
+package com.yadea.wc
 
 import org.apache.flink.api.java.utils.ParameterTool
 import org.apache.flink.streaming.api.scala._

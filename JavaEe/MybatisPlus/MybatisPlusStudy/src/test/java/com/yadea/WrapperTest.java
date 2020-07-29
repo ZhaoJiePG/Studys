@@ -1,7 +1,7 @@
 package com.yadea;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.yadea.mapper.UserMapper;
 import com.yadea.mapper.UserMapper;
 import com.yadea.pojo.Users;
 import org.junit.Test;
@@ -10,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
 /**

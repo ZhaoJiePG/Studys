@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    presto:
+      spring:
+        datasource:
+          marketing:
+            jdbc-url: jdbc:presto://10.149.1.50:8090/hive/dm?user=root
+            driver-class-name: com.facebook.presto.jdbc.PrestoDriver
+
+#    mysql:
+#      spring:
+#        datasource:
+#          pa:
+#            jdbc-url: jdbc:mysql://10.149.1.127:3306/storedriver?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
+#            username: root
+#            password: root
+#            driver-class-name: com.mysql.jdbc.Driver
+#
+#    mybatis-plus:
+#      mapper-locations: classpath*:/mapper/*/*Mapper.xml
+#      typeAliasesPackage: com.yadea.prestoboot.entity
+#      configuration:
+#        map-underscore-to-camel-case: true
+#        log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+#      global-config:
+#        db-config:
+#          id-type: auto

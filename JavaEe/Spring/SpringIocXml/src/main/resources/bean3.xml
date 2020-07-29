@@ -37,7 +37,7 @@
         弊端：
             必须安装规定保留创建方式
     -->
-    <bean id="accountService" class="com.zj.service.impl.AccountServiceImpl3">
+    <bean id="accountService" class="com.yadea.zj.service.impl.AccountServiceImpl3">
         <constructor-arg  name="name" value="zj" />
         <constructor-arg  name="age" value="18" />
         <constructor-arg  name="birthday" ref="now" />
@@ -58,7 +58,7 @@
        弊端：
            如果有某个成员必须有值，则获取对象是有可能set方法没有执行。
    -->
-    <bean id="accountService2" class="com.zj.service.impl.AccountServiceImpl4">
+    <bean id="accountService2" class="com.yadea.zj.service.impl.AccountServiceImpl4">
         <property name="name" value="TEST" ></property>
         <property name="age" value="21"></property>
         <property name="birthday" ref="now"></property>
@@ -71,7 +71,7 @@
             map  props
         结构相同，标签可以互换
     -->
-    <bean id="accountService3" class="com.zj.service.impl.AccountServiceImpl5">
+    <bean id="accountService3" class="com.yadea.zj.service.impl.AccountServiceImpl5">
     <property name="myStrs">
         <set>
             <value>AAA</value>

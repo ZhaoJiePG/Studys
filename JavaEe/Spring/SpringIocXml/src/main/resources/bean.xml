@@ -3,6 +3,6 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!--把对象的创建交给spring来创建-->
-    <bean id="accountService" class="com.zj.service.impl.AccountServiceImpl"></bean>
-    <bean id="accountDao" class="com.zj.dao.impl.AccountDaoImpl"></bean>
+    <bean id="accountService" class="com.yadea.zj.service.impl.AccountServiceImpl"></bean>
+    <bean id="accountDao" class="com.yadea.dao.impl.AccountDaoImpl"></bean>
 </beans>

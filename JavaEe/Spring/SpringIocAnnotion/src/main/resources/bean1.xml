@@ -5,7 +5,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <!--告知spring在创建容器时要扫描的包，配置所需要的标签不是在beans的约束中
         而是在名称为context名称空间和约束中-->
-    <context:component-scan base-package="com.zj"></context:component-scan>
+    <context:component-scan base-package="com.yadea"></context:component-scan>
 </beans>
 
 <!--        用于创建对象的-->
