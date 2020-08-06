@@ -15,6 +15,7 @@
         <module>QuickSpringBoot</module>
         <module>SpringBootWeb</module>
         <module>PrestoBoot</module>
+        <module>SwaggerBoot</module>
     </modules>
 
     <properties>
