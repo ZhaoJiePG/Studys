@@ -1,27 +1,49 @@
-spring:
-  datasource:
-    presto:
-      spring:
-        datasource:
-          marketing:
-            jdbc-url: jdbc:presto://10.149.1.50:8090/hive/dm?user=root
-            driver-class-name: com.facebook.presto.jdbc.PrestoDriver
+server:
+  port: 8085
 
-#    mysql:
-#      spring:
-#        datasource:
-#          pa:
-#            jdbc-url: jdbc:mysql://10.149.1.127:3306/storedriver?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
-#            username: root
-#            password: root
-#            driver-class-name: com.mysql.jdbc.Driver
-#
-#    mybatis-plus:
-#      mapper-locations: classpath*:/mapper/*/*Mapper.xml
-#      typeAliasesPackage: com.yadea.prestoboot.entity
-#      configuration:
-#        map-underscore-to-camel-case: true
-#        log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
-#      global-config:
-#        db-config:
-#          id-type: auto
+##数据库连接配置
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://10.149.1.154:3306/test?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+#    username: root
+#    password: root
+#  jackson:
+#    date-format: yyyy-MM-dd HH:mm:ss
+#    time-zone: GMT+8
+#    serialization:
+#      write-dates-as-timestamps: false
+presto:
+  spring:
+    datasource:
+      marketing:
+        jdbc-url: jdbc:presto://10.149.1.50:8090/hive/dm?user=root
+        driver-class-name: com.facebook.presto.jdbc.PrestoDriver
+
+mysql:
+  spring:
+    datasource:
+      pa:
+        jdbcUrl: jdbc:mysql://10.149.1.154:3306/test?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
+        username: root
+        password: root
+        driver-class-name: com.mysql.jdbc.Driver
+
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    auto-mapping-behavior: full
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+  global-config:
+    # 逻辑删除配置
+    db-config:
+      # 删除前
+      logic-not-delete-value: 1
+      # 删除后
+      logic-delete-value: 0
+logging:
+  level:
+    root: info
+    com.example: debug
