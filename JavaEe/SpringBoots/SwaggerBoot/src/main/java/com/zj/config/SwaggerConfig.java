@@ -1,6 +1,7 @@
 package com.zj.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.core.env.Environment;
@@ -27,14 +28,16 @@ import static springfox.documentation.service.ApiInfo.DEFAULT_CONTACT;
 public class SwaggerConfig {
 
     //配置swagger的bean实例
-    @Autowired
-    public Docket docket(Environment environment){
+    @Bean
+    public Docket docket(Environment environment) {
 
         //获取项目的环境,设置要显示的swagger环境
 //        String property = environment.getProperty("spring.profiles.active");
 //        if (property == "dev"){
-//
-//        }
+//              flag = true;
+//        }else{
+//            flag = false
+//    }
 
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
@@ -65,5 +68,17 @@ public class SwaggerConfig {
                 new ArrayList());
     }
 
+    @Bean
+    public Docket docket1() {
+        return new Docket(DocumentationType.SWAGGER_2).groupName("A");
+    }
+    @Bean
+    public Docket docket2() {
+        return new Docket(DocumentationType.SWAGGER_2).groupName("B");
+    }
+    @Bean
+    public Docket docket3() {
+        return new Docket(DocumentationType.SWAGGER_2).groupName("C");
+    }
 
 }

@@ -2,6 +2,11 @@ package com.zj.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.zj.pojo.User;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,8 +16,8 @@ import java.util.HashMap;
  * Created by ZJ on 2020/8/6
  * comment:
  */
-@Controller
-@ResponseBody
+@Api("Swagger测试亲求")
+@RestController
 @RequestMapping("/zj")
 public class SwaggerController {
 
@@ -27,8 +32,15 @@ public class SwaggerController {
         return messegeJSONObject;
     }
 
-    @GetMapping(value = "/hello")
-    public String hello(){
-        return "hello";
+    @PostMapping(value = "/hello")
+    @ApiOperation("测试hello")
+    public String hello(@RequestBody @ApiParam(name = "name",value = "名称",required = true) String name){
+        return name + ":hello";
+    }
+
+
+    @PostMapping(value = "/user")
+    public User user(){
+        return new User();
     }
 }
