@@ -14,5 +14,6 @@
 <packaging>pom</packaging>
     <modules>
         <module>SwaggerBoot</module>
+        <module>DataBoot</module>
     </modules>
 </project>

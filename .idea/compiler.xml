@@ -9,35 +9,39 @@
         <outputRelativeToContentRoot value="true" />
         <module name="SpringAopAnnotion" />
         <module name="SpringAopXml" />
-        <module name="quickspringboot" />
-        <module name="MybatisDynamicSql" />
-        <module name="SpringIocAnnotion" />
+        <module name="Learning" />
         <module name="SparkLearning" />
         <module name="MybatisAnnontation" />
-        <module name="Scala" />
+        <module name="SpidersBasic" />
+        <module name="DataBoot" />
         <module name="JpaStart" />
         <module name="SpringIoc" />
+        <module name="MybatisiDAO" />
         <module name="JpaSpring" />
         <module name="SpringIocXml" />
         <module name="FlinkLearing" />
-        <module name="KuDu" />
-        <module name="SpringBootWeb" />
-        <module name="SpringAnnotion" />
-        <module name="MybatisiDAO" />
-        <module name="MybatisCRUD" />
         <module name="QuickSpringBoot" />
-        <module name="Learning" />
-        <module name="SpiderBasic" />
-        <module name="SpringMVCStart" />
-        <module name="Pro_SaledScreen" />
         <module name="MybatisPlusStudy" />
+        <module name="SpringAnnotion" />
+        <module name="MybatisDynamicSql" />
+        <module name="MybatisCRUD" />
+        <module name="SpringMVCStart" />
+        <module name="Scala" />
+        <module name="KuDu" />
+        <module name="SpringIocAnnotion" />
+        <module name="quickspringboot" />
+        <module name="Pro_SaledScreen" />
+        <module name="SpringBootWeb" />
         <module name="Pro_GpsEtl" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="DataSourceAndTx" target="1.5" />
       <module name="HelloWorld" target="1.5" />
+      <module name="JavaSpider" target="1.5" />
+      <module name="JavaUtils" target="1.5" />
       <module name="MybatisLearning" target="1.5" />
+      <module name="SpiderBasic" target="1.5" />
       <module name="SpringBootData" target="1.5" />
       <module name="StudySpringBoot" target="1.5" />
     </bytecodeTargetLevel>

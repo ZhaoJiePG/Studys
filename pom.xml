@@ -12,7 +12,6 @@
         <module>Flink</module>
         <module>JavaEe</module>
         <module>Scala</module>
-        <module>JavaUtils</module>
     </modules>
     <packaging>pom</packaging>
     <properties>

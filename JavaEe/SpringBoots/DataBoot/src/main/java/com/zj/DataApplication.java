@@ -1,15 +1,15 @@
-import org.mybatis.spring.annotation.MapperScan;
+package com.zj;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * Created by ZJ on 2020/7/22
+ * Created by ZJ on 2020/8/18
  * comment:
  */
 @SpringBootApplication
-@MapperScan("com.yadea.mapper")
-public class TestApplication {
+public class DataApplication {
     public static void main(String[] args) {
-        SpringApplication.run(TestApplication.class, args);
+        SpringApplication.run(DataApplication.class, args);
     }
 }

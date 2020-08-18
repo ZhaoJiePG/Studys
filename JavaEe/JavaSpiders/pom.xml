@@ -3,25 +3,16 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>Studys</artifactId>
+        <artifactId>JavaEe</artifactId>
         <groupId>com.zj</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>JavaUtils</artifactId>
+    <artifactId>JavaSpiders</artifactId>
 
     <packaging>pom</packaging>
     <modules>
-        <module>JavaSpider</module>
+        <module>SpidersBasic</module>
     </modules>
-
-    <dependencies>
-        <!-- HttpClient -->
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.5.3</version>
-        </dependency>
-    </dependencies>
 </project>
