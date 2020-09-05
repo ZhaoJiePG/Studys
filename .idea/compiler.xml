@@ -9,7 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="SpringAopAnnotion" />
         <module name="SpringAopXml" />
-        <module name="Learning" />
+        <module name="Scala" />
         <module name="SparkLearning" />
         <module name="MybatisAnnontation" />
         <module name="SpidersBasic" />
@@ -20,18 +20,18 @@
         <module name="JpaSpring" />
         <module name="SpringIocXml" />
         <module name="FlinkLearing" />
-        <module name="QuickSpringBoot" />
-        <module name="MybatisPlusStudy" />
+        <module name="KuDu" />
+        <module name="quickspringboot" />
+        <module name="SpringBootWeb" />
         <module name="SpringAnnotion" />
         <module name="MybatisDynamicSql" />
         <module name="MybatisCRUD" />
-        <module name="SpringMVCStart" />
-        <module name="Scala" />
-        <module name="KuDu" />
+        <module name="QuickSpringBoot" />
+        <module name="Learning" />
         <module name="SpringIocAnnotion" />
-        <module name="quickspringboot" />
+        <module name="SpringMVCStart" />
         <module name="Pro_SaledScreen" />
-        <module name="SpringBootWeb" />
+        <module name="MybatisPlusStudy" />
         <module name="Pro_GpsEtl" />
       </profile>
     </annotationProcessing>

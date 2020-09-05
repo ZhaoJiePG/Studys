@@ -1,5 +1,6 @@
-package Methods;
+package HttpClient;
 
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -13,7 +14,7 @@ import java.io.IOException;
  * Created by ZJ on 2020/8/20
  * comment:
  */
-public class RequestPool {
+public class RequestParamTime {
     public static void main(String[] args) {
         PoolingHttpClientConnectionManager cm = new PoolingHttpClientConnectionManager();
 
@@ -30,6 +31,15 @@ public class RequestPool {
         CloseableHttpClient httpClient = HttpClients.custom().setConnectionManager(cm).build();
 
         HttpGet httpGet = new HttpGet("http://www.itcast.cn/");
+
+        //设置请求参数
+        RequestConfig requestConfig = RequestConfig.custom()
+                .setConnectTimeout(1000)//设置创建连接的最长时间
+                .setConnectionRequestTimeout(500)//设置获取连接的最长时间
+                .setSocketTimeout(10 * 1000)//设置数据传输的最长时间
+                .build();
+
+        httpGet.setConfig(requestConfig);
 
         CloseableHttpResponse response = null;
 
