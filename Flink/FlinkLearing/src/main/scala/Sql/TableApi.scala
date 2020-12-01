@@ -14,13 +14,13 @@ object TableApi {
 
     //transform操作
     val inputStream: DataStream[String] = env.readTextFile("D:\\Maven\\SparkFlink\\Flink\\src\\main\\resources\\sensor.txt")
-    val dataStream: DataStream[SensorReading] = inputStream.map(data => {
-      val dataList: Array[String] = data.split(',')
-      //将对象转换位string
-      SensorReading(dataList(0).trim(),dataList(1).trim.toLong,dataList(2).toDouble)
-    })
-
-    dataStream.print()
+//    val dataStream: DataStream[SensorReading] = inputStream.map(data => {
+//      val dataList: Array[String] = data.split(',')
+//      //将对象转换位string
+//      SensorReading(dataList(0).trim(),dataList(1).trim.toLong,dataList(2).toDouble)
+//    })
+//
+//    dataStream.print()
     env.execute()
   }
 }

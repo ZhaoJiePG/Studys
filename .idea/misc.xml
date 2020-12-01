@@ -13,20 +13,6 @@
         <option value="$PROJECT_DIR$/JavaEe/Spring/pom.xml" />
       </list>
     </option>
-    <option name="ignoredFiles">
-      <set>
-        <option value="$PROJECT_DIR$/Flink/Learning/pom.xml" />
-        <option value="$PROJECT_DIR$/Java/pom.xml" />
-        <option value="$PROJECT_DIR$/JavaEe/Mybatis/DataSourceAndTx/pom.xml" />
-        <option value="$PROJECT_DIR$/JavaEe/Mybatis/MybatisLearning/pom.xml" />
-        <option value="$PROJECT_DIR$/JavaEe/SpringBoot/SpringBootData/pom.xml" />
-        <option value="$PROJECT_DIR$/JavaEe/SpringBoot/StudySpringBoot/pom.xml" />
-        <option value="$PROJECT_DIR$/JavaEe/SpringMVC/SpringMvcStart/pom.xml" />
-        <option value="$PROJECT_DIR$/JavaUtils/JavaSpider/pom.xml" />
-        <option value="$PROJECT_DIR$/JavaUtils/pom.xml" />
-        <option value="$PROJECT_DIR$/Multithread/pom.xml" />
-      </set>
-    </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
