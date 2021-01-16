@@ -25,6 +25,7 @@
         <module>MybatisPlus</module>
         <module>SpringBoots</module>
         <module>JavaSpiders</module>
+        <module>ThreadExecutor</module>
     </modules>
 
     <dependencyManagement>
