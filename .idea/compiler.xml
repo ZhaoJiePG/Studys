@@ -11,29 +11,29 @@
         <module name="SpringAopXml" />
         <module name="Scala" />
         <module name="JpaSpring" />
+        <module name="FlinkLearing" />
         <module name="SparkLearning" />
         <module name="MybatisAnnontation" />
         <module name="SpidersBasic" />
         <module name="DataBoot" />
         <module name="JpaStart" />
         <module name="SpringIoc" />
-        <module name="quickspringboot" />
-        <module name="SpringIocXml" />
-        <module name="SpringIocAnnotion" />
-        <module name="FlinkLearing" />
-        <module name="KuDu" />
-        <module name="MybatisPlusStudy" />
-        <module name="SpringBootWeb" />
-        <module name="SpringAnnotion" />
         <module name="MybatisiDAO" />
+        <module name="SpringIocXml" />
+        <module name="Pro_GpsEtl" />
+        <module name="ThreadExecutor" />
+        <module name="KuDu" />
+        <module name="quickspringboot" />
+        <module name="MybatisPlusStudy" />
+        <module name="SpringAnnotion" />
+        <module name="MybatisDynamicSql" />
         <module name="MybatisCRUD" />
         <module name="QuickSpringBoot" />
         <module name="Learning" />
-        <module name="MybatisDynamicSql" />
+        <module name="SpringIocAnnotion" />
         <module name="SpringMVCStart" />
         <module name="Pro_SaledScreen" />
-        <module name="ThreadExecutor" />
-        <module name="Pro_GpsEtl" />
+        <module name="SpringBootWeb" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
