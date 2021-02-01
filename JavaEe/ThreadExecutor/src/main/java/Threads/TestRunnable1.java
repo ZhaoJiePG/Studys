@@ -1,32 +1,24 @@
 package Threads;
 
 /**
- * Created by ZJ on 2021/1/23
- * comment:
+ * Created by ZJ on 2021/1/25
+ * comment:实现runnable接口，重写run方法，执行线程丢入runnable接口实现类
  */
-
-//创建线程方式一：继承Thread类，重写run()方法，调用start开启线程
-public class TestThread1 extends Thread{
-    @Override
+public class TestRunnable1 implements Runnable {
     public void run() {
         //run方法线程体
         for (int i=1;i<=1000;i++){
             System.out.println("我再看代码------"+i);
         }
-
     }
 
     public static void main(String[] args) {
-        //main线程，主线程
-        TestThread1 testThread1 = new TestThread1();
-
+        TestRunnable1 testRunnable1 = new TestRunnable1();
         //调用start()方法开启
-        testThread1.start();
+        new Thread(testRunnable1).start();
 
         for (int i=1;i<=1000;i++) {
             System.out.println("我再学习多线程-----"+i);
         }
-
-        testThread1.destroy();
     }
 }
