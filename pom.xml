@@ -24,7 +24,12 @@
         <flink.version>1.7.2</flink.version>
     </properties>
 
+
     <repositories>
+        <repository>
+            <id>cloudera</id>
+            <url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
+        </repository>
         <repository>
             <id>alimaven</id>
             <name>aliyun maven</name>

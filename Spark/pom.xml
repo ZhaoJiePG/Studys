@@ -15,7 +15,6 @@
         <module>Pro_SaledScreen</module>
         <module>Pro_GpsEtl</module>
         <module>Learning</module>
-        <module>KuDu</module>
     </modules>
 
     <properties>

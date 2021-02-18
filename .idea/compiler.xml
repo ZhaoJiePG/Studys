@@ -10,7 +10,6 @@
         <module name="SpringAopAnnotion" />
         <module name="SpidersBasic" />
         <module name="Scala" />
-        <module name="JpaSpring" />
         <module name="FlinkLearing" />
         <module name="SparkLearning" />
         <module name="MybatisAnnontation" />
@@ -20,10 +19,10 @@
         <module name="SpringIoc" />
         <module name="SpringAopXml" />
         <module name="MybatisiDAO" />
+        <module name="JpaSpring" />
         <module name="SpringIocXml" />
-        <module name="Pro_GpsEtl" />
         <module name="ThreadExecutor" />
-        <module name="KuDu" />
+        <module name="Pro_SaledScreen" />
         <module name="MybatisPlusStudy" />
         <module name="SpringAnnotion" />
         <module name="MybatisDynamicSql" />
@@ -32,7 +31,7 @@
         <module name="Learning" />
         <module name="SpringIocAnnotion" />
         <module name="SpringMVCStart" />
-        <module name="Pro_SaledScreen" />
+        <module name="Pro_GpsEtl" />
         <module name="SpringBootWeb" />
       </profile>
     </annotationProcessing>
@@ -41,6 +40,7 @@
       <module name="HelloWorld" target="1.5" />
       <module name="JavaSpider" target="1.5" />
       <module name="JavaUtils" target="1.5" />
+      <module name="KuDu" target="1.8" />
       <module name="MybatisLearning" target="1.5" />
       <module name="SpiderBasic" target="1.5" />
       <module name="SpringBootData" target="1.5" />
