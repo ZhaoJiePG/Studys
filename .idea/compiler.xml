@@ -9,30 +9,32 @@
         <outputRelativeToContentRoot value="true" />
         <module name="SpringAopAnnotion" />
         <module name="SpidersBasic" />
-        <module name="Scala" />
-        <module name="FlinkLearing" />
+        <module name="MybatisDynamicSql" />
         <module name="SparkLearning" />
         <module name="MybatisAnnontation" />
-        <module name="quickspringboot" />
         <module name="DataBoot" />
         <module name="JpaStart" />
         <module name="SpringIoc" />
         <module name="SpringAopXml" />
-        <module name="MybatisiDAO" />
+        <module name="Flink" />
+        <module name="QuickSpringBoot" />
+        <module name="ThreadExecutor" />
         <module name="JpaSpring" />
         <module name="SpringIocXml" />
-        <module name="ThreadExecutor" />
-        <module name="Pro_SaledScreen" />
-        <module name="MybatisPlusStudy" />
+        <module name="FlinkLearing" />
+        <module name="SpringBootWeb" />
         <module name="SpringAnnotion" />
-        <module name="MybatisDynamicSql" />
+        <module name="MybatisiDAO" />
+        <module name="Flink112" />
         <module name="MybatisCRUD" />
-        <module name="QuickSpringBoot" />
+        <module name="SpringMVCStart" />
+        <module name="Scala" />
         <module name="Learning" />
         <module name="SpringIocAnnotion" />
-        <module name="SpringMVCStart" />
+        <module name="quickspringboot" />
+        <module name="Pro_SaledScreen" />
+        <module name="MybatisPlusStudy" />
         <module name="Pro_GpsEtl" />
-        <module name="SpringBootWeb" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

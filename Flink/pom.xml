@@ -10,81 +10,283 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>Flink</artifactId>
-    <packaging>pom</packaging>
+    <packaging>jpomar</packaging>
     <modules>
         <module>FlinkLearing</module>
+        <module>Flink112</module>
     </modules>
 
+    <!-- 指定仓库位置，依次为aliyun、apache和cloudera仓库 -->
+    <repositories>
+        <repository>
+            <id>aliyun</id>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+        </repository>
+        <repository>
+            <id>apache</id>
+            <url>https://repository.apache.org/content/repositories/snapshots/</url>
+        </repository>
+        <repository>
+            <id>cloudera</id>
+            <url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
+        </repository>
+    </repositories>
+
+    <properties>
+        <encoding>UTF-8</encoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <java.version>1.8</java.version>
+        <scala.version>2.12</scala.version>
+        <flink.version>1.12.0</flink.version>
+    </properties>
     <dependencies>
-        <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-statebackend-rocksdb_2.11</artifactId>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka -->
-        <dependency>
-            <groupId>org.apache.kafka</groupId>
-            <artifactId>kafka_2.11</artifactId>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients -->
-        <dependency>
-            <groupId>org.apache.kafka</groupId>
-            <artifactId>kafka-clients</artifactId>
-        </dependency>
-
+        <!--依赖Scala语言-->
+        <!-- https://mvnrepository.com/artifact/org.scala-lang/scala-library -->
         <dependency>
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
+            <version>2.12.12</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-java -->
+
+
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-clients_2.12</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-scala_2.12</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-java</artifactId>
+            <version>${flink.version}</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-streaming-java -->
         <dependency>
             <groupId>org.apache.flink</groupId>
-            <artifactId>flink-streaming-java_2.11</artifactId>
-            <!--            <scope>provided</scope>-->
+            <artifactId>flink-streaming-scala_2.12</artifactId>
+            <version>${flink.version}</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-scala -->
         <dependency>
             <groupId>org.apache.flink</groupId>
-            <artifactId>flink-scala_2.11</artifactId>
+            <artifactId>flink-streaming-java_2.12</artifactId>
+            <version>${flink.version}</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-streaming-scala -->
         <dependency>
             <groupId>org.apache.flink</groupId>
-            <artifactId>flink-streaming-scala_2.11</artifactId>
+            <artifactId>flink-table-api-scala-bridge_2.12</artifactId>
+            <version>${flink.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.apache.flink</groupId>
-            <artifactId>flink-connector-kafka-0.11_2.11</artifactId>
+            <artifactId>flink-table-api-java-bridge_2.12</artifactId>
+            <version>${flink.version}</version>
         </dependency>
 
+        <!-- blink执行计划,1.11+默认的-->
         <dependency>
             <groupId>org.apache.flink</groupId>
-            <artifactId>flink-table_2.11</artifactId>
+            <artifactId>flink-table-planner-blink_2.12</artifactId>
+            <version>${flink.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-table-common</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+
+        <!--<dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-cep_2.12</artifactId>
+            <version>${flink.version}</version>
+        </dependency>-->
+
+        <!-- flink连接器-->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-kafka_2.12</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-sql-connector-kafka_2.12</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-jdbc_2.12</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-csv</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-json</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+
+        <!-- <dependency>
+           <groupId>org.apache.flink</groupId>
+           <artifactId>flink-connector-filesystem_2.12</artifactId>
+           <version>${flink.version}</version>
+       </dependency>-->
+        <!--<dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-jdbc_2.12</artifactId>
+            <version>${flink.version}</version>
+        </dependency>-->
+        <!--<dependency>
+              <groupId>org.apache.flink</groupId>
+              <artifactId>flink-parquet_2.12</artifactId>
+              <version>${flink.version}</version>
+         </dependency>-->
+        <!--<dependency>
+            <groupId>org.apache.avro</groupId>
+            <artifactId>avro</artifactId>
+            <version>1.9.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.parquet</groupId>
+            <artifactId>parquet-avro</artifactId>
+            <version>1.10.0</version>
+        </dependency>-->
+
 
         <dependency>
             <groupId>org.apache.bahir</groupId>
             <artifactId>flink-connector-redis_2.11</artifactId>
+            <version>1.0</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>flink-streaming-java_2.11</artifactId>
+                    <groupId>org.apache.flink</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>flink-runtime_2.11</artifactId>
+                    <groupId>org.apache.flink</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>flink-core</artifactId>
+                    <groupId>org.apache.flink</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>flink-java</artifactId>
+                    <groupId>org.apache.flink</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
+
         <dependency>
             <groupId>org.apache.flink</groupId>
-            <artifactId>flink-connector-elasticsearch6_2.11</artifactId>
+            <artifactId>flink-connector-hive_2.12</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hive</groupId>
+            <artifactId>hive-metastore</artifactId>
+            <version>2.1.0</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>hadoop-hdfs</artifactId>
+                    <groupId>org.apache.hadoop</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hive</groupId>
+            <artifactId>hive-exec</artifactId>
+            <version>2.1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-shaded-hadoop-2-uber</artifactId>
+            <version>2.7.5-10.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-client</artifactId>
+            <version>2.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.38</version>
+            <!--<version>8.0.20</version>-->
+        </dependency>
+
+        <!-- 高性能异步组件：Vertx-->
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-core</artifactId>
+            <version>3.9.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-jdbc-client</artifactId>
+            <version>3.9.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-redis-client</artifactId>
+            <version>3.9.0</version>
+        </dependency>
+
+        <!-- 日志 -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.7</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+            <scope>runtime</scope>
         </dependency>
 
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-
+            <version>1.2.44</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.2</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- 参考：https://blog.csdn.net/f641385712/article/details/84109098-->
+        <!--<dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.4</version>
+        </dependency>-->
+        <!--<dependency>
+            <groupId>org.apache.thrift</groupId>
+            <artifactId>libfb303</artifactId>
+            <version>0.9.3</version>
+            <type>pom</type>
+            <scope>provided</scope>
+         </dependency>-->
+        <!--<dependency>
+           <groupId>com.google.guava</groupId>
+           <artifactId>guava</artifactId>
+           <version>28.2-jre</version>
+       </dependency>-->
+
     </dependencies>
+
 
 </project>

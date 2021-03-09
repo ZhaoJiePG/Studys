@@ -25,6 +25,26 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.typesafe.scala-logging</groupId>
+            <artifactId>scala-logging_2.11</artifactId>
+            <version>3.5.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.apache.kudu/kudu-spark2 -->
+        <dependency>
+            <groupId>org.apache.kudu</groupId>
+            <artifactId>kudu-spark2_2.11</artifactId>
+            <version>1.12.0</version>
+        </dependency>
+
 
         <!--Spark Core-->
         <dependency>

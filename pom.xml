@@ -15,57 +15,31 @@
     </modules>
     <packaging>pom</packaging>
     <properties>
-        <scala.version>2.11.8</scala.version>
+        <scala.version>2.12.12</scala.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <hadoop.version>2.7.6</hadoop.version>
         <spark.version>2.3.3</spark.version>
         <compile.version>1.8</compile.version>
         <junit.version>4.12</junit.version>
-        <flink.version>1.7.2</flink.version>
     </properties>
 
 
+    <!-- 指定仓库位置，依次为aliyun、apache和cloudera仓库 -->
     <repositories>
+        <repository>
+            <id>aliyun</id>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+        </repository>
+        <repository>
+            <id>apache</id>
+            <url>https://repository.apache.org/content/repositories/snapshots/</url>
+        </repository>
         <repository>
             <id>cloudera</id>
             <url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
         </repository>
-        <repository>
-            <id>alimaven</id>
-            <name>aliyun maven</name>
-            <url>http://maven.aliyun.com/nexus/content/repositories/central/</url>
-        </repository>
-        <repository>
-        <id>scala-tools.org</id>
-        <name>Scala-Tools Maven2 Repository</name>
-        <url>http://scala-tools.org/repo-releases</url>
-        </repository>
-        <repository>
-            <id>central-repos2</id>
-            <name>Central Repository 2</name>
-            <url>http://repo1.maven.org/maven2/</url>
-        </repository>
-        <repository>
-            <id>central-repos</id>
-            <name>Central Repository</name>
-            <url>http://repo.maven.apache.org/maven2</url>
-        </repository>
-
-        <repository>
-            <id>cloudera</id>
-            <name>cdh Repository 2</name>
-            <url>https://repository.cloudera.com/content/repositories/releases/</url>
-            <!--<url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>-->
-        </repository>
     </repositories>
 
-    <pluginRepositories>
-        <pluginRepository>
-            <id>scala-tools.org</id>
-            <name>Scala-Tools Maven2 Repository</name>
-            <url>http://scala-tools.org/repo-releases</url>
-        </pluginRepository>
-    </pluginRepositories>
 
     <dependencyManagement>
         <dependencies>
@@ -247,12 +221,6 @@
                 <!--<scope>provided</scope>-->
             </dependency>
 
-            <dependency>
-                <groupId>org.apache.flink</groupId>
-                <artifactId>flink-statebackend-rocksdb_2.11</artifactId>
-                <version>1.7.2</version>
-            </dependency>
-
 
             <!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients -->
             <dependency>
@@ -265,57 +233,6 @@
                 <groupId>org.scala-lang</groupId>
                 <artifactId>scala-library</artifactId>
                 <version>${scala.version}</version>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-java -->
-            <dependency>
-                <groupId>org.apache.flink</groupId>
-                <artifactId>flink-java</artifactId>
-                <version>${flink.version}</version>
-            </dependency>
-
-            <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-streaming-java -->
-            <dependency>
-                <groupId>org.apache.flink</groupId>
-                <artifactId>flink-streaming-java_2.11</artifactId>
-                <version>${flink.version}</version>
-                <!--            <scope>provided</scope>-->
-            </dependency>
-
-            <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-scala -->
-            <dependency>
-                <groupId>org.apache.flink</groupId>
-                <artifactId>flink-scala_2.11</artifactId>
-                <version>${flink.version}</version>
-            </dependency>
-
-            <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-streaming-scala -->
-            <dependency>
-                <groupId>org.apache.flink</groupId>
-                <artifactId>flink-streaming-scala_2.11</artifactId>
-                <version>${flink.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.flink</groupId>
-                <artifactId>flink-connector-kafka-0.11_2.11</artifactId>
-                <version>${flink.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.flink</groupId>
-                <artifactId>flink-table_2.11</artifactId>
-                <version>${flink.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.bahir</groupId>
-                <artifactId>flink-connector-redis_2.11</artifactId>
-                <version>1.0</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.flink</groupId>
-                <artifactId>flink-connector-elasticsearch6_2.11</artifactId>
-                <version>${flink.version}</version>
             </dependency>
 
         </dependencies>
