@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>Flink</artifactId>
-    <packaging>jpomar</packaging>
+    <packaging>pom</packaging>
     <modules>
         <module>FlinkLearing</module>
         <module>Flink112</module>
@@ -47,7 +47,6 @@
         <dependency>
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
-            <version>2.12.12</version>
         </dependency>
 
 
@@ -287,6 +286,5 @@
        </dependency>-->
 
     </dependencies>
-
 
 </project>

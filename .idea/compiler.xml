@@ -16,7 +16,6 @@
         <module name="JpaStart" />
         <module name="SpringIoc" />
         <module name="SpringAopXml" />
-        <module name="Flink" />
         <module name="QuickSpringBoot" />
         <module name="ThreadExecutor" />
         <module name="JpaSpring" />
